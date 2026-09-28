@@ -78,13 +78,3 @@ relationship 0dd5a76f-96f9-c9fe-37e8-2ecae278f6da
 	fromColumn: is_sku_ef.Plant_Key
 	toColumn: CAT_Plant_Master.Plant_-_Key
 
-relationship 9d6d11e8-7a3e-4309-8ca2-b4507cd6eeec
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Silver is_forecast_unified'.Week
-	toColumn: LocalDateTable_d33f0a75-4fd1-4d14-ba58-ef2cd204e950.Date
-
-relationship 19ff6f6d-d529-441c-ab5b-a5115fac1761
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Avg_daily.Snapshot_Date
-	toColumn: LocalDateTable_2c2d6ff7-66cb-4e6f-990f-a22d3076cf8e.Date
-

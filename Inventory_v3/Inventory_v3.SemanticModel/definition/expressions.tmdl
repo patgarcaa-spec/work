@@ -1,0 +1,28 @@
+expression Avg_daily =
+		let
+		    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+		    Bronze_is_src_avg_daily = Origen{[Schema="Bronze",Item="is_src_avg_daily"]}[Data],
+		
+		    ConNombre   = Table.AddColumn(Bronze_is_src_avg_daily, "FileName", each Text.AfterDelimiter([FilePath], "/", {0, RelativePosition.FromEnd}), type text),
+		    ConSnapshot = Table.AddColumn(ConNombre, "Snapshot_Date", each try Date.FromText(Text.Start([FileName], 10), [Format="yyyy-MM-dd", Culture="en-US"]) otherwise null, type date),
+		
+		    UltimoSnap  = List.Max(ConSnapshot[Snapshot_Date]),
+		    // si no parsea fecha (todo null), NO filtra — así nunca te deja tabla vacía
+		    SoloUltimo  = if UltimoSnap = null then ConSnapshot else Table.SelectRows(ConSnapshot, each [Snapshot_Date] = UltimoSnap),
+		
+		    Renombrada  = Table.RenameColumns(SoloUltimo, {{"Material", "Material_Plant_Key"}}),
+		    ConMatKey   = Table.AddColumn(Renombrada, "Material_Key", each Text.BeforeDelimiter([Material_Plant_Key], "-", {0, RelativePosition.FromEnd}), type text),
+		
+		    Tipos = Table.TransformColumnTypes(ConMatKey, {
+		        {"Avg_Daily_Sales_for_last_6_weeks", type number},
+		        {"Avg_Fcst_by_Day_for_next_6_weeks", type number}
+		    }),
+		    Final = Table.RemoveColumns(Tipos, {"FilePath", "FileName"})
+		in
+		    Final
+	lineageTag: 7332c1d3-848f-45ad-8088-1e867e37803e
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

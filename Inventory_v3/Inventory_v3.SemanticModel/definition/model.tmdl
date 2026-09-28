@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["CAT_Material_Master","CAT_Plant_Master","CAT_Calendario","Driver Order","fct_inventory_batch","Weekly_Actuals","is_target_by_sku","Measures Inventory","is_sku_ef","Demand Basis","Silver is_forecast_unified","Avg_daily"]
+annotation PBI_QueryOrder = ["CAT_Material_Master","CAT_Plant_Master","CAT_Calendario","Driver Order","fct_inventory_batch","Weekly_Actuals","is_target_by_sku","Measures Inventory","is_sku_ef","Demand Basis","Avg_daily"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -32,10 +32,6 @@ ref table 'Measures Inventory'
 ref table 'Unit Measure'
 ref table is_sku_ef
 ref table 'Demand Basis'
-ref table 'Silver is_forecast_unified'
-ref table LocalDateTable_d33f0a75-4fd1-4d14-ba58-ef2cd204e950
-ref table Avg_daily
-ref table LocalDateTable_2c2d6ff7-66cb-4e6f-990f-a22d3076cf8e
 
 ref cultureInfo es-MX
 
