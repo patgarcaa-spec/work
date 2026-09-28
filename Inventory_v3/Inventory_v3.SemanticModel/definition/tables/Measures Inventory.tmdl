@@ -72,6 +72,7 @@ table 'Measures Inventory'
 			VAR _last = [Latest Snapshot]
 			RETURN CALCULATE ( MAX ( fct_inventory_batch[snapshot_date] ),
 			    fct_inventory_batch[snapshot_date] < _last,
+			    fct_inventory_batch[inventory_source] = "Inventory",
 			    REMOVEFILTERS ( fct_inventory_batch ) )
 		formatString: General Date
 		lineageTag: 6d615628-ad99-45ff-afeb-bacbe895d944
@@ -332,7 +333,8 @@ table 'Measures Inventory'
 			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
 			RETURN
 			SUMX (
-			    VALUES ( fct_inventory_batch[snapshot_date] ),
+			    CALCULATETABLE ( VALUES ( fct_inventory_batch[snapshot_date] ),
+			        fct_inventory_batch[inventory_source] = "Inventory" ),
 			    CALCULATE (
 			        SWITCH ( _u,
 			            0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
@@ -353,7 +355,8 @@ table 'Measures Inventory'
 			                - SUM ( fct_inventory_batch[on_hold_cases] )
 			                - SUM ( fct_inventory_batch[blocked_cases] )
 			                - SUM ( fct_inventory_batch[on_hold_aged_cases] )
-			        )
+			        ),
+			        fct_inventory_batch[inventory_source] = "Inventory"
 			    )
 			)
 		lineageTag: ca935ace-7a7a-4356-9e16-26f560ed5676
@@ -466,6 +469,7 @@ table 'Measures Inventory'
 			    CALCULATE ( MAX ( fct_inventory_batch[snapshot_date] ),
 			        REMOVEFILTERS ( fct_inventory_batch ),
 			        REMOVEFILTERS ( CAT_Calendario ),
+			        fct_inventory_batch[inventory_source] = "Inventory",
 			        fct_inventory_batch[snapshot_date] <= _wk + 6 )      -- ← + 6: cubre la semana completa
 			VAR _anchorWeek =
 			    CALCULATE ( MAX ( CAT_Calendario[week_start_date] ),
@@ -479,6 +483,7 @@ table 'Measures Inventory'
 			        - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			        fct_inventory_batch[inventory_source] = "Inventory",
 			        fct_inventory_batch[snapshot_date] = _anchor )
 			VAR _ohAnchor =
 			    SWITCH ( _u,
@@ -490,6 +495,7 @@ table 'Measures Inventory'
 			                    - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
 			                    REMOVEFILTERS ( CAT_Calendario ),
 			                    REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			                    fct_inventory_batch[inventory_source] = "Inventory",
 			                    fct_inventory_batch[snapshot_date] = _anchor ) * [Cost per Case] ),
 			        2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
 			                DIVIDE (
@@ -500,6 +506,7 @@ table 'Measures Inventory'
 			                        - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
 			                        REMOVEFILTERS ( CAT_Calendario ),
 			                        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			                        fct_inventory_batch[inventory_source] = "Inventory",
 			                        fct_inventory_batch[snapshot_date] = _anchor ),
 			                    CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
 			        _ohAnchorCases )
@@ -779,6 +786,7 @@ table 'Measures Inventory'
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			        fct_inventory_batch[has_aging] = TRUE (),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _sku   = fct_inventory_batch[sku_key]
@@ -830,6 +838,7 @@ table 'Measures Inventory'
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			        fct_inventory_batch[has_aging] = TRUE (),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _c = [At Risk Cases]
@@ -974,6 +983,7 @@ table 'Measures Inventory'
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			        fct_inventory_batch[has_aging] = TRUE (),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _oh   = CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
@@ -1008,6 +1018,7 @@ table 'Measures Inventory'
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			        fct_inventory_batch[has_aging] = TRUE (),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _c = [At Risk (Sales)]
