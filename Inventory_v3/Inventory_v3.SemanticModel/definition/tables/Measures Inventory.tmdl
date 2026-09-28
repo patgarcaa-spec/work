@@ -780,6 +780,8 @@ table 'Measures Inventory'
 			        REMOVEFILTERS ( CAT_Calendario ),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
+			    VAR _sku   = fct_inventory_batch[sku_key]
+			    VAR _plant = fct_inventory_batch[plant_key]   -- para el TREATAS de planta (hallazgo 7)
 			    VAR _oh   = CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
 			                    REMOVEFILTERS ( CAT_Calendario ),
 			                    fct_inventory_batch[snapshot_date] = _snap )
@@ -790,7 +792,10 @@ table 'Measures Inventory'
 			        IF ( _days > 0,
 			            CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
 			                REMOVEFILTERS ( CAT_Calendario ),
-			                REMOVEFILTERS ( is_sku_ef[Week] ),
+			                REMOVEFILTERS ( CAT_Material_Master ),
+			                REMOVEFILTERS ( CAT_Plant_Master ),
+			                TREATAS ( { _sku }, is_sku_ef[Item] ),
+			                -- TREATAS ( { _plant }, is_sku_ef[Plant_Key] ),   -- activar cuando el cliente resuelva el hallazgo 7 (forecast por nodo vs planta)
 			                is_sku_ef[Week] > _snap,
 			                is_sku_ef[Week] <= _snap + _days ),
 			            0 )
