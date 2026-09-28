@@ -235,11 +235,15 @@ table fct_inventory_batch
 		lineageTag: 8856763b-dfc9-408a-8904-a59baddc0605
 		summarizeBy: none
 		sourceColumn: Age
+		sortByColumn: Age_Orden
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
 	column Age_Orden
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 073f458e-334d-495d-b5c4-f2ed008b0d68
 		summarizeBy: none
 		sourceColumn: Age_Orden
@@ -414,7 +418,7 @@ table fct_inventory_batch
 				else if [ss_days_left] < 60 then 3
 				else if [ss_days_left] < 90 then 4
 				else if [ss_days_left] <= 120 then 5
-				else 6),
+				else 6, Int64.Type),
 				    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "MP_Key", each Text.From([sku_key]) & "-" & Text.PadStart(Text.From([plant_key]), 4, "0")),
 				
 				    // NUEVO: Avg_daily con 1 sola fila por llave (la del snapshot más reciente)

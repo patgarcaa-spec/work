@@ -881,9 +881,9 @@ table 'Measures Inventory'
 			    TRUE (),
 			    ISBLANK ( _d ),   "No date (BW gap)",
 			    _d < 0,           "Past Stop Ship",
-			    _d <= 30,         "< 30 days",
-			    _d <= 60,         "< 60 days",
-			    _d <= 90,         "< 90 days",
+			    _d < 30,          "< 30 days",
+			    _d < 60,          "< 60 days",
+			    _d < 90,          "< 90 days",
 			    _d <= 120,        "< 120 days",
 			    "Healthy (121+)"
 			)
@@ -992,21 +992,16 @@ table 'Measures Inventory'
 			    VAR _days = CALCULATE ( MIN ( fct_inventory_batch[sl_days_left] ),
 			                    REMOVEFILTERS ( CAT_Calendario ),
 			                    fct_inventory_batch[snapshot_date] = _snap )
-			    VAR _rate = CALCULATE ( MAX ( fct_inventory_batch[Avg Daily Sales SKU] ),
+			    VAR _rate = MAX ( CALCULATE ( MAX ( fct_inventory_batch[Avg Daily Sales SKU] ),
 			                    REMOVEFILTERS ( CAT_Calendario ),
-			                    fct_inventory_batch[snapshot_date] = _snap )
-			    VAR _consumo = IF ( _days > 0, COALESCE ( _rate, 0 ) * _days, 0 )   -- tasa negativa se trata como 0 vía COALESCE + el MAX final
+			                    fct_inventory_batch[snapshot_date] = _snap ), 0 )   -- tasa negativa o vacía = 0
+			    VAR _consumo = IF ( _days > 0, _rate * _days, 0 )
 			    RETURN IF ( _oh > 0, MAX ( _oh - _consumo, 0 ) )
 			)
 		formatString: 0
 		lineageTag: 96d9c71a-10b7-4c8f-8572-db67546cdf6f
 
 		annotation PBI_FormatHint = {"isDecimal":true}
-
-	measure Medida
-		lineageTag: b5b604c0-461f-4194-b2dd-bc64b73cfb75
-
-		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
 
 	measure 'Total Unsellable (Sales) $' =
 			
@@ -1022,8 +1017,7 @@ table 'Measures Inventory'
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _c = [At Risk (Sales)]
-			    RETURN IF ( NOT ISBLANK ( _c ), _c * CALCULATE ( MAX ( fct_inventory_batch[cost_per_case] ),
-			                            fct_inventory_batch[snapshot_date] = _snap ) )
+			    RETURN IF ( NOT ISBLANK ( _c ), _c * [Cost per Case] )
 			)
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: f95d2493-3310-4fa0-8506-5cc68ee10e4a
@@ -1035,16 +1029,6 @@ table 'Measures Inventory'
 		lineageTag: 5648574d-ebb8-41b3-b038-e71a07bfe358
 
 		annotation PBI_FormatHint = {"isDecimal":true}
-
-	measure max_stor_per =
-			
-			IF (
-			    NOT ISBLANK ( fct_inventory_batch[ss_date] )
-			        && NOT ISBLANK ( fct_inventory_batch[sled_date] ),
-			    fct_inventory_batch[sl_days]
-			        - DATEDIFF ( fct_inventory_batch[ss_date], fct_inventory_batch[sled_date], DAY )
-			)
-		lineageTag: 5009c936-e306-4656-b7df-35232809673c
 
 	partition 'Measures Inventory' = m
 		mode: import
