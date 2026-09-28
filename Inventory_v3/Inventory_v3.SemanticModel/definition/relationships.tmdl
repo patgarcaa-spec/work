@@ -63,11 +63,8 @@ relationship 56f607dd-1ff5-6917-6c01-883a8287889c
 	toColumn: 'Driver Order'.Driver
 
 relationship b3fdbfb0-cee7-9ecd-e1c3-0f688966bd83
-	crossFilteringBehavior: bothDirections
-	securityFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: CAT_Material_Master.Material___Key
-	toColumn: is_target_by_sku.Item
+	fromColumn: is_target_by_sku.Item
+	toColumn: CAT_Material_Master.Material___Key
 
 relationship b77a9dab-2921-2ce3-19ba-57f02b55f7a6
 	fromColumn: is_sku_ef.Week
@@ -90,8 +87,4 @@ relationship 19ff6f6d-d529-441c-ab5b-a5115fac1761
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Avg_daily.Snapshot_Date
 	toColumn: LocalDateTable_2c2d6ff7-66cb-4e6f-990f-a22d3076cf8e.Date
-
-relationship AutoDetected_4ed8b69c-a8d3-414c-a18d-45446d1c4781
-	fromColumn: Avg_daily.Material_Key
-	toColumn: is_target_by_sku.Item
 
