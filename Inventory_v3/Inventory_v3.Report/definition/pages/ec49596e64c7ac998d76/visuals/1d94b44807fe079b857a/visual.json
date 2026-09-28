@@ -194,7 +194,7 @@
                     "Entity": "Measures Inventory"
                   }
                 },
-                "Property": "Target Inventory"
+                "Property": "Target Inventory (u)"
               }
             },
             "direction": "Descending"

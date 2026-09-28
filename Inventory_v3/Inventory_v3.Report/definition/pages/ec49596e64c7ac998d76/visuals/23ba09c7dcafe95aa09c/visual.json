@@ -51,20 +51,6 @@
           "selector": {
             "id": "default"
           }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1"
-          }
         }
       ],
       "fillCustom": [
@@ -231,53 +217,11 @@
             }
           },
           "selector": {
-            "metadata": "_DRV Measures.Metric V1"
-          }
-        },
-        {
-          "properties": {
-            "paddingUniform": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            }
-          },
-          "selector": {
             "id": "default"
           }
         }
       ],
       "referenceLabel": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Δ Change Label"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_DRV Measures.Metric V1",
-            "id": "field-c9dfb4ff-ae11-c3a1-c290-4442a743d0ec",
-            "order": 0
-          }
-        },
         {
           "properties": {
             "backgroundShow": {
@@ -297,20 +241,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1"
           }
         }
       ],
@@ -358,125 +288,7 @@
           }
         }
       ],
-      "referenceLabelTitle": [
-        {
-          "properties": {
-            "titleText": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Comparison Ref. Label"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_DRV Measures.Metric V1",
-            "id": "field-c9dfb4ff-ae11-c3a1-c290-4442a743d0ec"
-          }
-        },
-        {
-          "properties": {
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1",
-            "id": "field-c9dfb4ff-ae11-c3a1-c290-4442a743d0ec"
-          }
-        }
-      ],
       "referenceLabelValue": [
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Δ Change ColorFormat"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_DRV Measures.Metric V1",
-            "id": "field-c9dfb4ff-ae11-c3a1-c290-4442a743d0ec"
-          }
-        },
-        {
-          "properties": {
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1",
-            "id": "field-c9dfb4ff-ae11-c3a1-c290-4442a743d0ec"
-          }
-        },
-        {
-          "properties": {
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "valueFontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Arial'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1"
-          }
-        },
         {
           "properties": {
             "valueFontSize": {
@@ -549,39 +361,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 3,
-                      "Percent": 0.2
-                    }
-                  }
-                }
-              }
-            },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_DRV Measures.Metric V1"
           }
         }
       ]
