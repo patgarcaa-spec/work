@@ -778,6 +778,7 @@ table 'Measures Inventory'
 			        SUMMARIZE ( fct_inventory_batch,
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
+			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _sku   = fct_inventory_batch[sku_key]
@@ -828,6 +829,7 @@ table 'Measures Inventory'
 			        SUMMARIZE ( fct_inventory_batch,
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
+			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _c = [At Risk Cases]
@@ -971,6 +973,7 @@ table 'Measures Inventory'
 			        SUMMARIZE ( fct_inventory_batch,
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
+			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _oh   = CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
@@ -1004,6 +1007,7 @@ table 'Measures Inventory'
 			        SUMMARIZE ( fct_inventory_batch,
 			            fct_inventory_batch[sku_key], fct_inventory_batch[plant_key], fct_inventory_batch[batch] ),
 			        REMOVEFILTERS ( CAT_Calendario ),
+			        NOT ISBLANK ( fct_inventory_batch[sled_date] ),
 			        fct_inventory_batch[snapshot_date] = _snap
 			    ),
 			    VAR _c = [At Risk (Sales)]
