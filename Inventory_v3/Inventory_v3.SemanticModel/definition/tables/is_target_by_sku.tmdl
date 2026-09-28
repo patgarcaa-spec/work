@@ -1,0 +1,45 @@
+table is_target_by_sku
+	lineageTag: 2885a693-8029-48ee-98b0-fdb2251c57b2
+
+	column Item
+		dataType: string
+		lineageTag: bf2a3050-87a3-40f5-8557-58d9782b2859
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column DFC_Target_@_85%_CFR
+		dataType: int64
+		formatString: 0
+		lineageTag: 653c3ad2-13a1-4eee-ae6b-abb83898425a
+		summarizeBy: sum
+		sourceColumn: DFC_Target_@_85%_CFR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DFC_Target_@_98.5%_CFR'
+		dataType: int64
+		formatString: 0
+		lineageTag: b7241714-401e-489a-8224-514f67eccc14
+		summarizeBy: sum
+		sourceColumn: DFC_Target_@_98.5%_CFR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition is_target_by_sku = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Bronze_is_target_by_sku = Origen{[Schema="Bronze",Item="is_target_by_sku"]}[Data],
+				    #"Columnas quitadas" = Table.RemoveColumns(Bronze_is_target_by_sku,{"FilePath"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas quitadas",{{"DFC_Target_@_85%_CFR", Int64.Type}, {"DFC_Target_@_98.5%_CFR", Int64.Type}}),
+				    #"Duplicados quitados" = Table.Distinct(#"Tipo cambiado", {"Item"})
+				in
+				    #"Duplicados quitados"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

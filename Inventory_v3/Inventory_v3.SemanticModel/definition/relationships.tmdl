@@ -1,0 +1,97 @@
+relationship ccc863ed-f215-4077-b5d1-c94fe4184c7b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CAT_Calendario.date
+	toColumn: LocalDateTable_88e7f85e-e092-4d2a-8670-1e0ef675b30c.Date
+
+relationship 9da49588-a5d7-4f62-946f-ff75d9930ab6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CAT_Calendario.week_start_date
+	toColumn: LocalDateTable_9023a66c-11c5-4cce-b768-b4a0718e605e.Date
+
+relationship fa31811e-49f1-493f-86b1-2d1fcc9e6ea0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CAT_Calendario.week_end_date
+	toColumn: LocalDateTable_a504c387-f693-4607-9f40-a4d60c5049d8.Date
+
+relationship 0399c7c6-1a16-4aa9-92e7-f0de7596c18d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CAT_Calendario.start_of_month
+	toColumn: LocalDateTable_08d65ef1-fa3d-44d0-aee7-983f041fa4b7.Date
+
+relationship 71ed353c-d7f5-418a-b407-2eb42efe2373
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_inventory_batch.last_goods_receipt
+	toColumn: LocalDateTable_8b9d525b-5809-40e1-91d5-6593dcbaa9f5.Date
+
+relationship a9ff0320-82e8-4a7f-8c6a-58ce422e15c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_inventory_batch.manuf_date
+	toColumn: LocalDateTable_b10523a9-fdb3-4a1b-97f9-4c502c7b2794.Date
+
+relationship df05d152-3512-4f51-8d2c-fe883d5472ba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_inventory_batch.ss_date
+	toColumn: LocalDateTable_233def24-eb47-46d0-ad3e-06cee02dc690.Date
+
+relationship e90b1df3-ec84-4eab-9635-c9fa5ab40486
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_inventory_batch.sled_date
+	toColumn: LocalDateTable_aa0111fd-816c-4301-81dd-e84e891e2ff4.Date
+
+relationship 864ecdbb-c45c-65e7-ac4e-8522fe4f65c6
+	fromColumn: fct_inventory_batch.sku_key
+	toColumn: CAT_Material_Master.Material___Key
+
+relationship 6ff76276-a827-8da6-429d-25fe8a9996f0
+	fromColumn: fct_inventory_batch.plant_key
+	toColumn: CAT_Plant_Master.Plant_-_Key
+
+relationship 03c84f07-c6ca-c359-7cff-e26af7af0425
+	fromColumn: fct_inventory_batch.snapshot_date
+	toColumn: CAT_Calendario.date
+
+relationship 7e7aca47-9b90-e529-c1aa-9e94027d284b
+	fromColumn: Weekly_Actuals.SKU
+	toColumn: CAT_Material_Master.Material___Key
+
+relationship a263bad2-9371-b40b-90fa-3a104017a1db
+	fromColumn: Weekly_Actuals.Week
+	toColumn: CAT_Calendario.date
+
+relationship 56f607dd-1ff5-6917-6c01-883a8287889c
+	fromColumn: fct_inventory_batch.risk_driver
+	toColumn: 'Driver Order'.Driver
+
+relationship b3fdbfb0-cee7-9ecd-e1c3-0f688966bd83
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: CAT_Material_Master.Material___Key
+	toColumn: is_target_by_sku.Item
+
+relationship b77a9dab-2921-2ce3-19ba-57f02b55f7a6
+	fromColumn: is_sku_ef.Week
+	toColumn: CAT_Calendario.date
+
+relationship 20847642-80ed-28e4-5b5d-29691b0ad9e9
+	fromColumn: is_sku_ef.Item
+	toColumn: CAT_Material_Master.Material___Key
+
+relationship 0dd5a76f-96f9-c9fe-37e8-2ecae278f6da
+	fromColumn: is_sku_ef.Plant_Key
+	toColumn: CAT_Plant_Master.Plant_-_Key
+
+relationship 9d6d11e8-7a3e-4309-8ca2-b4507cd6eeec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Silver is_forecast_unified'.Week
+	toColumn: LocalDateTable_d33f0a75-4fd1-4d14-ba58-ef2cd204e950.Date
+
+relationship 19ff6f6d-d529-441c-ab5b-a5115fac1761
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Avg_daily.Snapshot_Date
+	toColumn: LocalDateTable_2c2d6ff7-66cb-4e6f-990f-a22d3076cf8e.Date
+
+relationship AutoDetected_4ed8b69c-a8d3-414c-a18d-45446d1c4781
+	fromColumn: Avg_daily.Material_Key
+	toColumn: is_target_by_sku.Item
+

@@ -1,0 +1,36 @@
+table 'Driver Order'
+	lineageTag: cbdd2629-24b7-4714-9202-481a37501079
+
+	column Driver
+		dataType: string
+		lineageTag: 7861e040-af15-470a-90dc-750892be46cd
+		summarizeBy: none
+		sourceColumn: Driver
+		sortByColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c1754b5-638c-4fa0-b327-a4066e1cac79
+		summarizeBy: none
+		sourceColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Driver Order' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Jci7CoAgFADQX4k719B7bigaoiWaxCHkmlKopFD9fRcbz2EMRtzOoF5IIQeeMugfgd4Ti8hu12YnlVGLwlNmk5ZIVf0VrEsWpR1NHWe2yWAvFJsPdE281RzG3obcAucf", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Driver = _t, Sort = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Driver", type text}, {"Sort", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

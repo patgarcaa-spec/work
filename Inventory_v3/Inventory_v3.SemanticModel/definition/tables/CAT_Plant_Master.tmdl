@@ -1,0 +1,298 @@
+table CAT_Plant_Master
+	lineageTag: 0fc99dcf-8ff2-4f75-9d6b-4b6a67a8ffc2
+
+	column Plant_-_Key
+		dataType: string
+		lineageTag: 5e9f3ad3-b2bf-4bb3-ac79-48d86b66be01
+		summarizeBy: none
+		sourceColumn: Plant_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant
+		dataType: string
+		lineageTag: 8b8d5ca9-fcf0-49b4-929a-a3a3bc5d9407
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_code_-_Key
+		dataType: string
+		lineageTag: 889e3ddc-5316-484c-b553-a90c964b2657
+		summarizeBy: none
+		sourceColumn: Company_code_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_code
+		dataType: string
+		lineageTag: 3a05b62c-b2e3-46a5-b625-c94115ba5e09
+		summarizeBy: none
+		sourceColumn: Company_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_-_Key
+		dataType: string
+		lineageTag: 4ddec66c-6e68-43e0-8015-505622894b84
+		summarizeBy: none
+		sourceColumn: Country_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: b149215e-8002-41cc-9665-1aaee0a3b7e8
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Controlling_area_-_Key
+		dataType: string
+		lineageTag: f06dfd9f-09eb-4eb0-86cf-7df0811a15b1
+		summarizeBy: none
+		sourceColumn: Controlling_area_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Controlling_area
+		dataType: string
+		lineageTag: 820b2447-582c-4ee0-8503-c4d8836694a2
+		summarizeBy: none
+		sourceColumn: Controlling_area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Distribution_Channel_-_Key
+		dataType: string
+		lineageTag: 0a5f12ca-3e23-4ddc-9544-a73378384065
+		summarizeBy: none
+		sourceColumn: Distribution_Channel_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Distribution_Channel
+		dataType: string
+		lineageTag: 44289a7d-09ce-4a2f-9eda-b5f06f852a4b
+		summarizeBy: none
+		sourceColumn: Distribution_Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factory_Calendar_ID
+		dataType: string
+		lineageTag: 291e24a4-df78-43ae-86f2-e270dc164f2d
+		summarizeBy: none
+		sourceColumn: Factory_Calendar_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchasing_org._-_Key'
+		dataType: string
+		lineageTag: be3789dd-d1ab-40b4-9340-91c0f5883820
+		summarizeBy: none
+		sourceColumn: Purchasing_org._-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchasing_org.'
+		dataType: string
+		lineageTag: 7943995a-9080-4533-9c51-b1a8d3c7581b
+		summarizeBy: none
+		sourceColumn: Purchasing_org.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Organization_-_Key
+		dataType: string
+		lineageTag: e517fdbb-c29a-4cd1-ad74-d02ad023c4d8
+		summarizeBy: none
+		sourceColumn: Sales_Organization_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Organization
+		dataType: string
+		lineageTag: e6745cae-38e7-4aad-b882-ad2603778fdd
+		summarizeBy: none
+		sourceColumn: Sales_Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_Type_-_Key
+		dataType: string
+		lineageTag: fe034d34-97c3-4109-83e3-6490e576d9cd
+		summarizeBy: none
+		sourceColumn: Location_Type_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_Type
+		dataType: string
+		lineageTag: 5d088e65-1be0-4e95-b583-a082b57af051
+		summarizeBy: none
+		sourceColumn: Location_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_Number_-_Key
+		dataType: string
+		lineageTag: 98a2dc2f-f238-48de-9656-a38c929d87ac
+		summarizeBy: none
+		sourceColumn: Location_Number_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_Number
+		dataType: string
+		lineageTag: 09b9ea2f-db36-47aa-bc90-a6dedeb47215
+		summarizeBy: none
+		sourceColumn: Location_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prft_Cntr_for_Plant_-_Key
+		dataType: string
+		lineageTag: 29937448-3af6-482c-8130-62e7ea496fa0
+		summarizeBy: none
+		sourceColumn: Prft_Cntr_for_Plant_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prft_Cntr_for_Plant
+		dataType: string
+		lineageTag: 8bd56371-4783-4b90-b38e-eef6863ccbbd
+		summarizeBy: none
+		sourceColumn: Prft_Cntr_for_Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Area
+		dataType: string
+		lineageTag: e0aa354e-75bb-4212-af6d-830afdc731a5
+		summarizeBy: none
+		sourceColumn: Sales_Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_-_Street_Name_Key
+		dataType: string
+		lineageTag: 1d27f19e-b32d-4afe-b052-138954279d4d
+		summarizeBy: none
+		sourceColumn: Plant_-_Street_Name_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_-_Key
+		dataType: string
+		lineageTag: 0f5ce04d-358d-4806-a254-a5d0ea90e3a1
+		summarizeBy: none
+		sourceColumn: Location_-_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: fcfdbb83-699a-4baa-89a5-2530f5dddf7e
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: b0a67339-2066-48a5-992b-18ea5798e623
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Postal_Code
+		dataType: string
+		lineageTag: 04d64799-897d-4579-b14b-18ad36fb73d5
+		summarizeBy: none
+		sourceColumn: Postal_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Postal_Code-Numeric
+		dataType: string
+		lineageTag: 653fa2e5-80f8-4a1c-bc08-5809b7716fbf
+		summarizeBy: none
+		sourceColumn: Postal_Code-Numeric
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_category
+		dataType: string
+		lineageTag: c75bdfab-f264-4728-800d-03fe4401cd0e
+		summarizeBy: none
+		sourceColumn: Plant_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geographical_Height
+		dataType: string
+		lineageTag: 9bfdce0e-f93a-4730-938b-55685bb516b5
+		summarizeBy: none
+		sourceColumn: Geographical_Height
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: string
+		lineageTag: f61a867c-5335-4687-990f-a7108a529701
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: string
+		lineageTag: 7dcc3563-15a2-4946-ab31-f1de91def404
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Number_of_Records
+		dataType: string
+		lineageTag: 7cb05ff8-8651-4290-90b2-e8d124e709b8
+		summarizeBy: none
+		sourceColumn: Number_of_Records
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pallet_capacity
+		dataType: string
+		lineageTag: c252ae12-c868-4588-94b5-47b3f16f7238
+		summarizeBy: none
+		sourceColumn: Pallet_capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column FilePath
+		dataType: string
+		lineageTag: 994f8cbe-bc23-4c9f-b51f-1ff1fe5a759e
+		summarizeBy: none
+		sourceColumn: FilePath
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CAT_Plant_Master = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Bronze_rd_plant_master = Origen{[Schema="Bronze",Item="rd_plant_master"]}[Data],
+				    #"Duplicados quitados" = Table.Distinct(Bronze_rd_plant_master, {"Plant_-_Key"}),
+				    #"Duplicados quitados1" = Table.Distinct(#"Duplicados quitados", {"Plant_-_Key"})
+				in
+				    #"Duplicados quitados1"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

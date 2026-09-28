@@ -1,0 +1,79 @@
+table is_sku_ef
+	lineageTag: 2755ed03-c3c0-462f-97df-4a797845feef
+
+	column Week
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f19fc5d9-b41a-4d76-bbf6-5005e152fee6
+		summarizeBy: none
+		sourceColumn: Week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Forecast_Cases
+		dataType: double
+		lineageTag: 82eac7b5-6344-4f54-a13f-af201375695d
+		summarizeBy: sum
+		sourceColumn: Forecast_Cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Forecast_Source
+		dataType: string
+		lineageTag: 0b8d627e-8970-45fb-82ee-39accd918c29
+		summarizeBy: none
+		sourceColumn: Forecast_Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: int64
+		formatString: 0
+		lineageTag: be4a29e3-7364-41b9-92c5-922c19223af1
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7815cb62-3b75-4eba-9d18-157b88bdd975
+		summarizeBy: none
+		sourceColumn: Plant_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU
+		dataType: string
+		lineageTag: 7dc070de-9e44-4074-ac46-3535c5f7afe8
+		summarizeBy: none
+		sourceColumn: BU
+
+		annotation SummarizationSetBy = Automatic
+
+	partition is_sku_ef = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Fuente = Origen{[Schema="Silver",Item="is_forecast_unified"]}[Data],
+				    Tipado = Table.TransformColumnTypes(Fuente, {
+				        {"Item", Int64.Type},
+				        {"Plant_Key", Int64.Type},
+				        {"BU", type text},
+				        {"Week", type date},
+				        {"Forecast_Cases", type number},
+				        {"Forecast_Source", type text}
+				    })
+				in
+				    Tipado
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

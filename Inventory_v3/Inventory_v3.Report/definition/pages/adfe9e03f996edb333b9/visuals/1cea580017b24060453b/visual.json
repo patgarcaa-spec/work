@@ -1,0 +1,1773 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1cea580017b24060453b",
+  "position": {
+    "x": 16.666666666666668,
+    "y": 176.66666666666669,
+    "z": 2000,
+    "height": 983.33333333333337,
+    "width": 1661.6666666666667,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "division"
+                }
+              },
+              "queryRef": "fct_inventory_batch.division",
+              "nativeQueryRef": "Division",
+              "displayName": "Division"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "sku_status"
+                }
+              },
+              "queryRef": "fct_inventory_batch.sku_status",
+              "nativeQueryRef": "Sku status",
+              "displayName": "Sku status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "abc_class"
+                }
+              },
+              "queryRef": "fct_inventory_batch.abc_class",
+              "nativeQueryRef": "ABC Class",
+              "displayName": "ABC Class"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material___Key"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material___Key",
+              "nativeQueryRef": "Item",
+              "displayName": "Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material",
+              "nativeQueryRef": "Description",
+              "displayName": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "BU"
+                }
+              },
+              "queryRef": "CAT_Material_Master.BU",
+              "nativeQueryRef": "BU"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Plant_Master"
+                    }
+                  },
+                  "Property": "Plant_-_Key"
+                }
+              },
+              "queryRef": "CAT_Plant_Master.Plant_-_Key",
+              "nativeQueryRef": "Plant",
+              "displayName": "Plant"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "batch"
+                }
+              },
+              "queryRef": "fct_inventory_batch.batch",
+              "nativeQueryRef": "batch"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "last_goods_receipt"
+                }
+              },
+              "queryRef": "fct_inventory_batch.last_goods_receipt",
+              "nativeQueryRef": "Last Goods Receipt",
+              "displayName": "Last Goods Receipt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "manuf_date"
+                }
+              },
+              "queryRef": "fct_inventory_batch.manuf_date",
+              "nativeQueryRef": "Manufacturing Date",
+              "displayName": "Manufacturing Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "days_old"
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.days_old)",
+              "nativeQueryRef": "Days old",
+              "displayName": "Days old"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "Stop Ship Date"
+                }
+              },
+              "queryRef": "fct_inventory_batch.Stop Ship Date",
+              "nativeQueryRef": "Stop Ship Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_inventory_batch"
+                        }
+                      },
+                      "Property": "ss_days_left"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.ss_days_left)",
+              "nativeQueryRef": "SS Days Left",
+              "displayName": "SS Days Left"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "Shelf Life Date"
+                }
+              },
+              "queryRef": "fct_inventory_batch.Shelf Life Date",
+              "nativeQueryRef": "Shelf Life Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_inventory_batch"
+                        }
+                      },
+                      "Property": "sl_days_left"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.sl_days_left)",
+              "nativeQueryRef": "SL Days Left",
+              "displayName": "SL Days Left"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_inventory_batch"
+                        }
+                      },
+                      "Property": "sl_days"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.sl_days)",
+              "nativeQueryRef": "SL Days",
+              "displayName": "SL Days"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_inventory_batch"
+                        }
+                      },
+                      "Property": "max_stor_per"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.max_stor_per)",
+              "nativeQueryRef": "Max stor per",
+              "displayName": "Max stor per"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "Age"
+                }
+              },
+              "queryRef": "fct_inventory_batch.Age",
+              "nativeQueryRef": "Age"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "_Active Measure"
+                }
+              },
+              "queryRef": "Measures Inventory._Active Measure",
+              "nativeQueryRef": "Total On-Hand",
+              "displayName": "Total On-Hand"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "On-Hand Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.On-Hand Cases",
+              "nativeQueryRef": "On-Hand Cases"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "On-Hold Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.On-Hold Cases",
+              "nativeQueryRef": "On-Hold Cases"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "On-Hold Aged Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.On-Hold Aged Cases",
+              "nativeQueryRef": "On-Hold Aged Cases1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Blocked Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.Blocked Cases",
+              "nativeQueryRef": "Blocked Cases"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "in_transit_cases"
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.in_transit_cases)",
+              "nativeQueryRef": "In transit Cases",
+              "displayName": "In transit Cases"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_inventory_batch"
+                        }
+                      },
+                      "Property": "cost_per_case"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.cost_per_case)",
+              "nativeQueryRef": "Cost per case",
+              "displayName": "Cost per case"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total At Risk Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.Total At Risk Cases",
+              "nativeQueryRef": "Unsellable (Fcst) cs",
+              "displayName": "Unsellable (Fcst) cs"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total At Risk $"
+                }
+              },
+              "queryRef": "Measures Inventory.Total At Risk $",
+              "nativeQueryRef": "Unsellable (Fcst) $",
+              "displayName": "Unsellable (Fcst) $"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total Unsellable (Sales) cs"
+                }
+              },
+              "queryRef": "Measures Inventory.Total Unsellable (Sales) cs",
+              "nativeQueryRef": "Unsellable (Sales) cs",
+              "displayName": "Unsellable (Sales) cs"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total Unsellable (Sales) $"
+                }
+              },
+              "queryRef": "Measures Inventory.Unsellable (Sales) $",
+              "nativeQueryRef": "Unsellable (Sales) $",
+              "displayName": "Unsellable (Sales) $"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total Value (aging)"
+                }
+              },
+              "queryRef": "Measures Inventory.Total Value (aging)",
+              "nativeQueryRef": "Total Value ($)",
+              "displayName": "Total Value ($)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "manufacturing_loc"
+                }
+              },
+              "queryRef": "fct_inventory_batch.manufacturing_loc",
+              "nativeQueryRef": "Manufacturing loc",
+              "displayName": "Manufacturing loc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "line"
+                }
+              },
+              "queryRef": "fct_inventory_batch.line",
+              "nativeQueryRef": "Line",
+              "displayName": "Line"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "tie"
+                }
+              },
+              "queryRef": "fct_inventory_batch.tie",
+              "nativeQueryRef": "Tie",
+              "displayName": "Tie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "high"
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.high)",
+              "nativeQueryRef": "High",
+              "displayName": "High"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "cases_per_pallet"
+                }
+              },
+              "queryRef": "Sum(fct_inventory_batch.cases_per_pallet)",
+              "nativeQueryRef": "Cases per pallet",
+              "displayName": "Cases per pallet"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_inventory_batch"
+                  }
+                },
+                "Property": "Age"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E8F1F9'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 120 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#EDD37A'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'No Date'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#898781'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Healthy (121+)'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#4C9A4C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 90 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F2C94C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 60 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#EE9A2E'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 30 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#E0613C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Past Stop Ship'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#A32C2C'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'No Date'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Healthy (121+)'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 120 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#000000'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 90 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#000000'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 60 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 30 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fct_inventory_batch"
+                                        }
+                                      },
+                                      "Property": "Age"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Past Stop Ship'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "fct_inventory_batch.Age"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.74411061955894D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.Age"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.99999771403884D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.Material___Key"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.BU"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "185.43883241523707D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.Material"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.18766135785863D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fct_inventory_batch.sl_days_left)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.67379386340586D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fct_inventory_batch.ss_days_left)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.53342937499605D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.Stop Ship Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "116.33333393348246D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory._Active Measure"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "117.99999644317221D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Total At Risk Cases"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.5314996221312D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Total At Risk $"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "105.66666964108842D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.Shelf Life Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "119.99776361357716D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.On-Hold Aged Cases"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.99999655168548D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.On-Hold Cases"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "116.9847590919521D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.On-Hand Cases"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.3333354526092D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Blocked Cases"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.99998675006526D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Total Unsellable (Sales) cs"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.71428607441263D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Unsellable (Sales) $"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.33333256678662D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Plant_Master.Plant_-_Key"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.last_goods_receipt"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.manuf_date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fct_inventory_batch.in_transit_cases)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1a903f8705952dccff0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "_Active Measure"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Measures Inventory",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "_Active Measure"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "118e36127dfbbbdc245f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "Material"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ba9fad1180a40e9bf0da",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "BU"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "481cf78d30b0275b7243",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_inventory_batch"
+              }
+            },
+            "Property": "Age"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "800b859b081ddf96d3d6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Total Value (aging)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f4ff9e6ca1ea9ed6b77b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Total At Risk Cases"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f07164b3f5725366193",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_inventory_batch"
+              }
+            },
+            "Property": "batch"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "01553f0cc149d77d04e3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_inventory_batch"
+                  }
+                },
+                "Property": "ss_days_left"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "11a12243450b310d004f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_inventory_batch"
+              }
+            },
+            "Property": "Stop Ship Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "33847b92249b4edceda3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_inventory_batch"
+                  }
+                },
+                "Property": "sl_days_left"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "30faca03ffc44bf5e21f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_inventory_batch"
+              }
+            },
+            "Property": "Shelf Life Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fd1e56861d4a16b3cdd8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_inventory_batch"
+                  }
+                },
+                "Property": "sl_days"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "51c3446e1e01047417b6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_inventory_batch"
+                  }
+                },
+                "Property": "max_stor_per"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

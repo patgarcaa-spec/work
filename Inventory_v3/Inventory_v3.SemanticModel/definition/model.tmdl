@@ -1,0 +1,41 @@
+model Model
+	culture: es-MX
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-MX
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["CAT_Material_Master","CAT_Plant_Master","CAT_Calendario","Driver Order","fct_inventory_batch","Weekly_Actuals","is_target_by_sku","Measures Inventory","is_sku_ef","Demand Basis","Silver is_forecast_unified","Avg_daily"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table CAT_Material_Master
+ref table CAT_Plant_Master
+ref table CAT_Calendario
+ref table DateTableTemplate_fedff344-61ab-40a7-a24f-06d9641cafdf
+ref table LocalDateTable_88e7f85e-e092-4d2a-8670-1e0ef675b30c
+ref table LocalDateTable_9023a66c-11c5-4cce-b768-b4a0718e605e
+ref table LocalDateTable_a504c387-f693-4607-9f40-a4d60c5049d8
+ref table LocalDateTable_08d65ef1-fa3d-44d0-aee7-983f041fa4b7
+ref table 'Driver Order'
+ref table fct_inventory_batch
+ref table LocalDateTable_8b9d525b-5809-40e1-91d5-6593dcbaa9f5
+ref table LocalDateTable_b10523a9-fdb3-4a1b-97f9-4c502c7b2794
+ref table LocalDateTable_233def24-eb47-46d0-ad3e-06cee02dc690
+ref table LocalDateTable_aa0111fd-816c-4301-81dd-e84e891e2ff4
+ref table Weekly_Actuals
+ref table is_target_by_sku
+ref table 'Measures Inventory'
+ref table 'Unit Measure'
+ref table is_sku_ef
+ref table 'Demand Basis'
+ref table 'Silver is_forecast_unified'
+ref table LocalDateTable_d33f0a75-4fd1-4d14-ba58-ef2cd204e950
+ref table Avg_daily
+ref table LocalDateTable_2c2d6ff7-66cb-4e6f-990f-a22d3076cf8e
+
+ref cultureInfo es-MX
+

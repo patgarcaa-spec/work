@@ -1,0 +1,440 @@
+table fct_inventory_batch
+	lineageTag: e0709d75-e6a4-42a9-92a3-06fdbdaa685c
+
+	column sku_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7aac042c-a033-4e45-8d12-b6c0e4716675
+		summarizeBy: none
+		sourceColumn: sku_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column plant_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d1112c8-8ba3-4621-be8f-74d28547ad13
+		summarizeBy: none
+		sourceColumn: plant_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column batch
+		dataType: string
+		lineageTag: 86e35db1-ea07-4fa2-8793-d4572fe00ca6
+		summarizeBy: none
+		sourceColumn: batch
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 89863d56-918b-4462-826f-8ae0507ce85b
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column on_hand_cases
+		dataType: double
+		lineageTag: 2e7156f0-38f9-4d47-80ab-c8d5b64a0e6c
+		summarizeBy: sum
+		sourceColumn: on_hand_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column on_hold_cases
+		dataType: double
+		lineageTag: ab6868f8-a2ab-4f71-a647-a1a90994fc4a
+		summarizeBy: sum
+		sourceColumn: on_hold_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column on_hold_aged_cases
+		dataType: double
+		lineageTag: f4eea04d-07a8-49a8-881f-8e6771e1949d
+		summarizeBy: sum
+		sourceColumn: on_hold_aged_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column blocked_cases
+		dataType: double
+		lineageTag: 398a2cc5-dc34-40d4-8d3d-0f963eeeae78
+		summarizeBy: sum
+		sourceColumn: blocked_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column in_transit_cases
+		dataType: double
+		formatString: #,0
+		lineageTag: 534f8c16-66ea-48bd-914d-e8733985633a
+		summarizeBy: sum
+		sourceColumn: in_transit_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column tqoh_cases
+		dataType: double
+		lineageTag: 4c408795-4305-4d50-9ccc-072ee25a7b04
+		summarizeBy: sum
+		sourceColumn: tqoh_cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_value_usd
+		dataType: double
+		lineageTag: 8dd422c6-953f-45b2-819a-7236fec5633e
+		summarizeBy: sum
+		sourceColumn: total_value_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_case
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a4635f71-a552-4ebd-b0a4-6bb07f8cdecd
+		summarizeBy: sum
+		sourceColumn: cost_per_case
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_goods_receipt
+		dataType: dateTime
+		formatString: dd/mmm/yyyy
+		lineageTag: 1d1c1d3d-aced-49c6-a122-b24aae2658c0
+		summarizeBy: none
+		sourceColumn: last_goods_receipt
+
+		variation Variación
+			isDefault
+			relationship: 71ed353c-d7f5-418a-b407-2eb42efe2373
+			defaultHierarchy: LocalDateTable_8b9d525b-5809-40e1-91d5-6593dcbaa9f5.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column manuf_date
+		dataType: dateTime
+		formatString: dd/mmm/yyyy
+		lineageTag: 4cc10665-94d4-4015-be84-5dfcdc37dfb4
+		summarizeBy: none
+		sourceColumn: manuf_date
+
+		variation Variación
+			isDefault
+			relationship: a9ff0320-82e8-4a7f-8c6a-58ce422e15c8
+			defaultHierarchy: LocalDateTable_b10523a9-fdb3-4a1b-97f9-4c502c7b2794.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ss_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 18a77fe7-aea7-4c63-8ee5-4ad2bbd1902b
+		summarizeBy: none
+		sourceColumn: ss_date
+
+		variation Variación
+			isDefault
+			relationship: df05d152-3512-4f51-8d2c-fe883d5472ba
+			defaultHierarchy: LocalDateTable_233def24-eb47-46d0-ad3e-06cee02dc690.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column sled_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9ef8a2dc-bee0-4303-b707-6f4cbffc5e28
+		summarizeBy: none
+		sourceColumn: sled_date
+
+		variation Variación
+			isDefault
+			relationship: e90b1df3-ec84-4eab-9635-c9fa5ab40486
+			defaultHierarchy: LocalDateTable_aa0111fd-816c-4301-81dd-e84e891e2ff4.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column days_old
+		dataType: int64
+		formatString: 0
+		lineageTag: ce70ab36-a165-45b8-9877-61bb9b6eeddd
+		summarizeBy: sum
+		sourceColumn: days_old
+
+		annotation SummarizationSetBy = Automatic
+
+	column ss_days_left
+		dataType: int64
+		formatString: 0
+		lineageTag: f9589591-29e2-46fa-870c-e5c94ddd5661
+		summarizeBy: sum
+		sourceColumn: ss_days_left
+
+		annotation SummarizationSetBy = Automatic
+
+	column sl_days_left
+		dataType: int64
+		formatString: 0
+		lineageTag: d74709ca-7e3c-41d1-8c3b-1634a911b5e2
+		summarizeBy: sum
+		sourceColumn: sl_days_left
+
+		annotation SummarizationSetBy = Automatic
+
+	column sl_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: 96687230-d0cb-4f0b-b090-ef89c72d8f53
+		summarizeBy: sum
+		sourceColumn: sl_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_driver
+		dataType: string
+		lineageTag: 3f34eb32-3b5f-4f72-9106-edb56a774088
+		summarizeBy: none
+		sourceColumn: risk_driver
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: string
+		lineageTag: 8856763b-dfc9-408a-8904-a59baddc0605
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age_Orden
+		dataType: string
+		lineageTag: 073f458e-334d-495d-b5c4-f2ed008b0d68
+		summarizeBy: none
+		sourceColumn: Age_Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Name' =
+			
+			VAR _k = RIGHT ( "000" & FORMAT ( fct_inventory_batch[plant_key], "0" ), 4 )
+			VAR _name = LOOKUPVALUE ( CAT_Plant_Master[Plant], CAT_Plant_Master[Plant_-_Key], _k )
+			RETURN _k & " - " & COALESCE ( _name, "()" )
+		lineageTag: 801ea5b2-b760-4301-bf2c-169f2fdc860b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stop Ship Date' =
+			
+			IF (
+			    NOT ISBLANK ( fct_inventory_batch[ss_date] ),
+			    FORMAT ( fct_inventory_batch[ss_date], "MMM d, yyyy", "en-US" ),
+			    "No date"
+			)
+		lineageTag: 10872f92-e809-4e55-88b8-567e5bc30fc2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shelf Life Date' =
+			
+			IF (
+			    NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			    FORMAT ( fct_inventory_batch[sled_date], "MMM d, yyyy", "en-US" ),
+			    "No date"
+			)
+		lineageTag: e4c0e1a8-68cc-444c-b04f-93c140a44b2f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Avg Daily Sales SKU'
+		dataType: double
+		lineageTag: 39f336df-63d0-4011-80b6-8f92d2aaba12
+		summarizeBy: sum
+		sourceColumn: Avg Daily Sales SKU
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_stor_per =
+			
+			VAR _ss  = fct_inventory_batch[ss_date]
+			VAR _sle = fct_inventory_batch[sled_date]
+			RETURN
+			    IF ( NOT ISBLANK ( _ss ) && NOT ISBLANK ( _sle ),
+			        fct_inventory_batch[sl_days] - DATEDIFF ( _ss, _sle, DAY ) )
+		formatString: #,0
+		lineageTag: c2de6a16-7cb1-4d23-9e32-99e68e167d0f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column cases_per_pallet
+		dataType: int64
+		formatString: 0
+		lineageTag: 34478747-fa51-4c5b-8364-610b2623a118
+		summarizeBy: sum
+		sourceColumn: cases_per_pallet
+
+		annotation SummarizationSetBy = Automatic
+
+	column tie
+		dataType: string
+		lineageTag: 6daf7418-0799-4d76-ae46-f919f8ca6658
+		summarizeBy: none
+		sourceColumn: tie
+
+		annotation SummarizationSetBy = Automatic
+
+	column high
+		dataType: int64
+		formatString: 0
+		lineageTag: 7db0e003-7036-4027-a410-5e9196e4052f
+		summarizeBy: sum
+		sourceColumn: high
+
+		annotation SummarizationSetBy = Automatic
+
+	column manufacturing_loc
+		dataType: string
+		lineageTag: 5db5a984-fd27-457c-9e48-7473914783ec
+		summarizeBy: none
+		sourceColumn: manufacturing_loc
+
+		annotation SummarizationSetBy = Automatic
+
+	column line
+		dataType: string
+		lineageTag: ec7554df-4dba-4afd-a998-b6595c9ceb46
+		summarizeBy: none
+		sourceColumn: line
+
+		annotation SummarizationSetBy = Automatic
+
+	column division
+		dataType: string
+		lineageTag: 21c8aeb6-7062-46e4-8935-679059222ed6
+		summarizeBy: none
+		sourceColumn: division
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_status
+		dataType: string
+		lineageTag: 9fc405a9-ee31-4bea-9c02-3e2e2660bf52
+		summarizeBy: none
+		sourceColumn: sku_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column abc_class
+		dataType: string
+		lineageTag: 3c86180d-47fb-41b5-9f85-36be5072ba69
+		summarizeBy: none
+		sourceColumn: abc_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_source
+		dataType: string
+		lineageTag: b7ffd7ec-f89f-4971-aea1-f6dcbf25eec9
+		summarizeBy: none
+		sourceColumn: inventory_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column has_aging
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f84188df-dc20-4046-aa93-e5ef513080b2
+		summarizeBy: none
+		sourceColumn: has_aging
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_type
+		dataType: string
+		lineageTag: 0df24c9d-5b98-43fe-8b7b-2b0d5f72f22b
+		summarizeBy: none
+		sourceColumn: Material_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_inventory_batch = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Silver_fct_inventory_batch = Origen{[Schema="Silver",Item="fct_inventory_batch"]}[Data],
+				    #"Personalizada agregada" = Table.AddColumn(Silver_fct_inventory_batch, "Age", each if [ss_days_left] = null then "No Date"
+				else if [ss_days_left] < 0 then "Past Stop Ship"
+				else if [ss_days_left] < 30 then "< 30 days"
+				else if [ss_days_left] < 60 then "< 60 days"
+				else if [ss_days_left] < 90 then "< 90 days"
+				else if [ss_days_left] <= 120 then "< 120 days"
+				else "Healthy (121+)"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Age", type text}}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Tipo cambiado", "Age_Orden", each if [ss_days_left] = null then 7
+				else if [ss_days_left] < 0 then 1
+				else if [ss_days_left] < 30 then 2
+				else if [ss_days_left] < 60 then 3
+				else if [ss_days_left] < 90 then 4
+				else if [ss_days_left] <= 120 then 5
+				else 6),
+				    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "MP_Key", each Text.From([sku_key]) & "-" & Text.PadStart(Text.From([plant_key]), 4, "0")),
+				
+				    // NUEVO: Avg_daily con 1 sola fila por llave (la del snapshot más reciente)
+				    AvgOrdenado = Table.Buffer(
+				        Table.Sort(
+				            Table.SelectColumns(Avg_daily, {"Material_Plant_Key", "Avg_Daily_Sales_for_last_6_weeks", "Snapshot_Date"}),
+				            {{"Snapshot_Date", Order.Descending}}
+				        )
+				    ),
+				    AvgUnico = Table.Distinct(AvgOrdenado, {"Material_Plant_Key"}),
+				
+				    // El merge ahora cruza contra AvgUnico (antes era Avg_daily)
+				    #"Consultas combinadas" = Table.NestedJoin(#"Personalizada agregada2", {"MP_Key"}, AvgUnico, {"Material_Plant_Key"}, "Avg_daily", JoinKind.LeftOuter),
+				    #"Se expandió Avg_daily" = Table.ExpandTableColumn(#"Consultas combinadas", "Avg_daily", {"Avg_Daily_Sales_for_last_6_weeks"}, {"Avg_daily.Avg_Daily_Sales_for_last_6_weeks"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió Avg_daily",{{"Avg_daily.Avg_Daily_Sales_for_last_6_weeks", "Avg Daily Sales SKU"}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Columnas con nombre cambiado",{"MP_Key"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

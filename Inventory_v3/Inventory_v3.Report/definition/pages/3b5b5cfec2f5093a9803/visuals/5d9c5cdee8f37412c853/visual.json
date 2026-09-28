@@ -1,0 +1,316 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "5d9c5cdee8f37412c853",
+  "position": {
+    "x": 16.666666666666668,
+    "y": 200,
+    "z": 13000,
+    "height": 498.33333333333337,
+    "width": 1560,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material___Key"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material___Key",
+              "nativeQueryRef": "Item",
+              "displayName": "Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material",
+              "nativeQueryRef": " ",
+              "displayName": " "
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Plant_Master"
+                    }
+                  },
+                  "Property": "Plant_-_Key"
+                }
+              },
+              "queryRef": "CAT_Plant_Master.Plant_-_Key",
+              "nativeQueryRef": "Plant",
+              "displayName": "Plant"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Plant_Master"
+                    }
+                  },
+                  "Property": "Plant"
+                }
+              },
+              "queryRef": "CAT_Plant_Master.Plant",
+              "nativeQueryRef": " 1",
+              "displayName": " "
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "VAR_CATEGORY"
+                }
+              },
+              "queryRef": "CAT_Material_Master.VAR_CATEGORY",
+              "nativeQueryRef": "Category",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Sellable Now (detail)"
+                }
+              },
+              "queryRef": "Measures Inventory.Sellable Now (detail)",
+              "nativeQueryRef": "Sellable Now",
+              "displayName": "Sellable Now"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Forecast 13w"
+                }
+              },
+              "queryRef": "Measures Inventory.Forecast 13w",
+              "nativeQueryRef": "Forecast 13w"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "DFC Target Ideal"
+                }
+              },
+              "queryRef": "Measures Inventory.DFC Target Ideal",
+              "nativeQueryRef": "DFC Target Ideal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Days Forecast Coverage"
+                }
+              },
+              "queryRef": "Measures Inventory.Days Forecast Coverage",
+              "nativeQueryRef": "DFC days",
+              "displayName": "DFC days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "DFC Target Lower"
+                }
+              },
+              "queryRef": "Measures Inventory.DFC Target Lower",
+              "nativeQueryRef": "DFC Target Lower"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Stockout Week"
+                }
+              },
+              "queryRef": "Measures Inventory.Stockout Week",
+              "nativeQueryRef": "Stockout Week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Recommended Action"
+                }
+              },
+              "queryRef": "Measures Inventory.Recommended Action",
+              "nativeQueryRef": "Recommended Action"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Inventory"
+                  }
+                },
+                "Property": "Sellable Now (detail)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'12-WEEK SUPPLY & DEMAND OUTLOOK'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

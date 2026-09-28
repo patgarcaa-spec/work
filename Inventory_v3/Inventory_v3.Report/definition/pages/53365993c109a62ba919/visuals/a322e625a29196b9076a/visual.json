@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a322e625a29196b9076a",
+  "position": {
+    "x": 193.33333333333334,
+    "y": 6.666666666666667,
+    "z": 1000,
+    "height": 61.666666666666671,
+    "width": 1195,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Aging Summary",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Calibri",
+                      "fontSize": "28pt",
+                      "color": "#ffffff"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

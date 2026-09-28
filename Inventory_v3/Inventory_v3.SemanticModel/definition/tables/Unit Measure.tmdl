@@ -1,0 +1,36 @@
+table 'Unit Measure'
+	lineageTag: 9f468b71-fccb-4f9d-b0f6-f1914aaae48f
+
+	column 'Unit Measure'
+		lineageTag: b3dbb6ce-f893-42dc-9f9b-80eddc7a87a8
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Measure Campos'
+		lineageTag: 68feb54e-55b4-432c-bd09-05e7d4992fac
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Measure Orden'
+		formatString: 0
+		lineageTag: 60fb5890-6bb5-48a5-b447-344ae6036324
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Unit Measure' = calculated
+		mode: import
+		source =
+				{
+				    ("Dollars", NAMEOF('Measures Inventory'[Inventory Value]), 0),
+				    ("Cases",   NAMEOF('Measures Inventory'[TQOH Cases]), 1),
+				    ("Pallets", NAMEOF('Measures Inventory'[TQOH Pallets]), 2)
+				}
+
+	annotation PBI_Id = eb72241d65d943c999aa425289e943e1
+

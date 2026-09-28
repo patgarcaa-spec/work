@@ -1,0 +1,2058 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "d2e45050217d28bb73aa",
+  "position": {
+    "x": 16,
+    "y": 802,
+    "z": 23000,
+    "height": 242,
+    "width": 1144,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Calendario"
+                    }
+                  },
+                  "Property": "week_start_date"
+                }
+              },
+              "queryRef": "CAT_Calendario.week_start_date",
+              "nativeQueryRef": "week_start_date",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "VAR_CATEGORY_NEW_IBP"
+                }
+              },
+              "queryRef": "CAT_Material_Master.VAR_CATEGORY_NEW_IBP",
+              "nativeQueryRef": "Category",
+              "active": true,
+              "displayName": "Category"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "DFC Projected (wk)"
+                }
+              },
+              "queryRef": "Measures Inventory.DFC Projected (wk)",
+              "nativeQueryRef": "DFC Projected (wk)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "steppedLayoutIndentation": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "repeatRowHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "LBs/Unit Δ ColorFormat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs/Unit Δ Change Label"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Measures Inventory"
+                            }
+                          },
+                          "Property": "DFC Projected (wk)"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient3": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#F4B7B4'"
+                              }
+                            },
+                            "value": {
+                              "Literal": {
+                                "Value": "0D"
+                              }
+                            }
+                          },
+                          "mid": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FFF2CC'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#D6E8D0'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Measures Inventory.DFC Projected (wk)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "Row"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "underline": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "Column"
+          }
+        },
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowTotal": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnTotal": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_DRV Measures.Metric V2"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_DRV Measures.Total Change"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_DRV Measures.LBs/Unit Δ Change Label"
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.88436208471469D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.42857142857143D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Month"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'January'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v1)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.14285714285714D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Month"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'January'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.15782330063982D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 1'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65.34434873650281D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 1'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v1)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.27119767563686D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v1)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.35566650985515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 1'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit Change"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "64.58811393616581D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit Change"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.53622339735996D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "_DRV Measures.LBs/Unit Δ Change Label"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "69.64588069804378D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 4'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs/Unit Δ Change Label"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.81233763835591D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 3'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs/Unit Δ Change Label"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.6502503044243D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 4'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.083750507373836D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 4'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit Change"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.08375050737384D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 3'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v1)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.43349353794625D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 3'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit (v2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "57.6502503044243D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_412941cd-9107-42c9-b196-f3365b5704bf"
+                          }
+                        },
+                        "Property": "Quarter"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Qtr 3'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_DRV Measures.LBs per Unit Change"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "128.5243187133406D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "A_CAT_SalesCategory.VAR_CATEGORY_NEW_IBP"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+0 · May 31'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.57142870682155D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+1 · Jun 7'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.14285724806115D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+10 · Aug 9'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.28571416438811D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+11 · Aug 16'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.14284989839973D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+12 · Aug 23'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.14285691046621D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+2 · Jun 14'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.42857083542125D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+3 · Jun 21'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.85714306023233D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+4 · Jun 28'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.57142872976952D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+5 · Jul 5'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.99999964841501D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+6 · Jul 12'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.42857162319885D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+7 · Jul 19'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.14285726449927D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+8 · Jul 26'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.57142857142857D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "_Inventory Projection 12W"
+                          }
+                        },
+                        "Property": "week_label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'W+9 · Aug 2'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.03621168676094D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Silver dr_finance_forecast"
+                          }
+                        },
+                        "Property": "Month_Label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Jun 2026'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.33333407380337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.VAR_CATEGORY_NEW_IBP"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.3333321868397D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Silver dr_finance_forecast"
+                          }
+                        },
+                        "Property": "Month_Label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Jul 2026'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.00000046748742D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Silver dr_finance_forecast"
+                          }
+                        },
+                        "Property": "Month_Label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Dec 2027'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "69.6666646720561D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Silver dr_finance_forecast"
+                          }
+                        },
+                        "Property": "Month_Label"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Nov 2027'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "blankRows": [
+        {
+          "properties": {
+            "showBlankRows": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Heading2'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Days Forecast Coverage by Category x Week - Forecast'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showFilterRestatementButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "62fd399fd1a0093300e4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "VAR_CATEGORY_NEW_IBP"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

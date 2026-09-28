@@ -1,0 +1,157 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a9feb6675b2b1fcd6960",
+  "position": {
+    "x": 17.142857142857142,
+    "y": 574.57142857142856,
+    "z": 16000,
+    "height": 225.71428571428572,
+    "width": 1558.5714285714287,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "waterfallChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Driver Order"
+                    }
+                  },
+                  "Property": "Driver"
+                }
+              },
+              "queryRef": "Driver Order.Driver",
+              "nativeQueryRef": "Driver",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "_Active Measure"
+                }
+              },
+              "queryRef": "Measures Inventory._Active Measure",
+              "nativeQueryRef": "_Active Measure"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Inventory"
+                  }
+                },
+                "Property": "_Active Measure"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current Risk Drivers — Baseline to Total'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "89c61b795536c01b88b9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Driver Order"
+              }
+            },
+            "Property": "Driver"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "757472fcd7bdb6e00094",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "_Active Measure"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

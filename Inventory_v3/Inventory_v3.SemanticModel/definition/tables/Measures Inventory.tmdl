@@ -1,0 +1,1046 @@
+table 'Measures Inventory'
+	lineageTag: bc9d13d3-21fa-4b18-a1be-85c2294d272e
+
+	measure 'Latest Snapshot' =
+			
+			CALCULATE (
+			    MAX ( fct_inventory_batch[snapshot_date] ),
+			    REMOVEFILTERS ( fct_inventory_batch ),
+			    fct_inventory_batch[inventory_source] = "Inventory"
+			)
+		formatString: General Date
+		lineageTag: 47527ecd-f3f2-4705-a74b-00903feceeb7
+
+	measure 'Inventory Value' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[total_value_usd] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		lineageTag: 53f2bb26-da54-40db-880f-759b583a3d7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TQOH Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		lineageTag: 87fc1625-c992-41ed-a1bb-ae3496a8b743
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TQOH Pallets' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			CALCULATE (
+			    SUMX ( fct_inventory_batch,
+			        DIVIDE ( fct_inventory_batch[tqoh_cases],
+			                 RELATED ( CAT_Material_Master[Cases_per_Pallet] ) ) ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		lineageTag: 124ecb2a-6d41-4e5e-94d4-3821f6b78d7a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '_Active Measure' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden] ),
+			    0, [Inventory Value],
+			    1, [TQOH Cases],
+			    2, [TQOH Pallets],
+			    [Inventory Value]
+			)
+		lineageTag: 84bd31fb-6fa5-4f25-9ba5-4cadb1c775db
+
+		formatStringDefinition =
+				SWITCH (
+				    SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden] ),
+				    0, "$#,##0",      // Dollars
+				    1, "#,##0",       // Cases
+				    2, "#,##0.0",     // Pallets (1 decimal, suelen salir fraccionados)
+				    "$#,##0"
+				)
+
+	measure 'Total Inventory Snapshot' = [_Active Measure]
+		lineageTag: f1628f08-90ee-41aa-bf79-9f0764add8d0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Prior Snapshot' =
+			
+			VAR _last = [Latest Snapshot]
+			RETURN CALCULATE ( MAX ( fct_inventory_batch[snapshot_date] ),
+			    fct_inventory_batch[snapshot_date] < _last,
+			    REMOVEFILTERS ( fct_inventory_batch ) )
+		formatString: General Date
+		lineageTag: 6d615628-ad99-45ff-afeb-bacbe895d944
+
+	measure 'Inventory Value Prior' =
+			
+			VAR _prior = [Prior Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[total_value_usd] ),
+			    fct_inventory_batch[snapshot_date] = _prior )
+		lineageTag: 9d80478b-1306-482a-a189-f2d3fb6aee49
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value Past Stop Ship' = CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "Past Stop Ship" )
+		displayFolder: Aging
+		lineageTag: 31add872-b089-4735-9547-ea9026df010d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value < 30 days' = CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "< 30 days" )
+		displayFolder: Aging
+		lineageTag: 94856bdd-28cc-4b4e-9ac0-5968c26fad20
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value < 60 days' = CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "< 60 days" )
+		displayFolder: Aging
+		lineageTag: cfc270ef-7d7f-4095-8cc1-6b885ee651a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value < 90 days' = ```
+			CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "< 90 days" )
+			
+			```
+		displayFolder: Aging
+		lineageTag: 54d44cdd-15d9-4301-8227-661a4f65a437
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value < 120 days' = ```
+			CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "< 120 days" )
+			
+			```
+		displayFolder: Aging
+		lineageTag: 2f03774b-1a89-4792-92fa-59f94e0aa888
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value Healthy' = ```
+			CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "Healthy (121+)" )
+			
+			```
+		displayFolder: Aging
+		lineageTag: eab38d97-a25b-414f-9a7f-20208aa359f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value No Date' = ```
+			CALCULATE ( [_Active Measure], fct_inventory_batch[Age] = "No Date" )
+			
+			```
+		displayFolder: Aging
+		lineageTag: 3928bb55-d7f2-4823-b380-134e72b3f30f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Value At Risk' =
+			
+			CALCULATE ( [_Active Measure],
+			    fct_inventory_batch[Age] IN { "Past Stop Ship", "< 30 days", "< 60 days", "< 90 days", "< 120 days" } )
+		displayFolder: Aging
+		lineageTag: 394f219a-6c44-48e9-a549-24bee1b2931b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Past Stop Ship' = DIVIDE ( [Value Past Stop Ship], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: af25be47-94c3-4744-a9e1-3f15f9fba96a
+
+	measure '% < 30 days' = DIVIDE ( [Value < 30 days], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: aa07b451-2ec6-44a2-976e-5148d4b32caa
+
+	measure '% < 60 days' = DIVIDE ( [Value < 60 days], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: 0a09d812-45a3-45d3-9b84-ce65cd8406fe
+
+	measure '% < 90 days' = DIVIDE ( [Value < 90 days], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: 154e2989-b604-4401-8492-5dd32dcffc4a
+
+	measure '% < 120 days' = DIVIDE ( [Value < 120 days], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: e11bf21c-4e6d-476a-a811-8cc18c7385bd
+
+	measure '% Healthy' = DIVIDE ( [Value Healthy], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: 876cd9cb-e7d4-41bd-b5d7-558f57e9c02d
+
+	measure '% No Date' = DIVIDE ( [Value No Date], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: 59335fc5-b1f0-4400-8cee-b5e7b0493610
+
+	measure '% At Risk' = DIVIDE ( [Value At Risk], [_Active Measure] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Aging
+		lineageTag: cdfe38a7-07d1-48bc-a67b-6c46bceed4d4
+
+	measure 'Value Healthy (Driver)' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( [_Active Measure], fct_inventory_batch[risk_driver] = "Healthy" )
+		lineageTag: 3080c32c-87d5-4c56-bc41-fbeed3691f8a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Inventory Exposure' =
+			
+			[_Active Measure] - [Value Healthy (Driver)]
+		lineageTag: f78a53c2-205f-4280-8a86-5f0029c01fe8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stop Ship Exposure %' =
+			
+			VAR _ss = CALCULATE ( [Inventory Value], fct_inventory_batch[risk_driver] = "Stop Ship" )
+			RETURN DIVIDE ( _ss, [Inventory Value] )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 62893b2e-031e-4c7e-aea0-bd734f95e56e
+
+	measure 'Days of Sales Coverage' =
+			
+			VAR _snap  = [Latest Snapshot]
+			VAR _oh    = [Sellable Now]
+			VAR _hist  = 12 * 7                       -- ventana: 12 semanas de historia
+			VAR _weeks =
+			    FILTER (
+			        ADDCOLUMNS (
+			            CALCULATETABLE (
+			                DISTINCT ( Weekly_Actuals[Week] ),
+			                Weekly_Actuals[Week] <= _snap,
+			                Weekly_Actuals[Week] >  _snap - _hist
+			            ),
+			            "Sales", CALCULATE ( SUM ( Weekly_Actuals[Sales_Cases] ) )
+			        ),
+			        [Sales] > 0
+			    )
+			VAR _ranked = ADDCOLUMNS ( _weeks, "rk", RANKX ( _weeks, [Week], , DESC ) )
+			VAR _cum =
+			    ADDCOLUMNS ( _ranked, "cum",
+			        VAR r = [rk]
+			        RETURN SUMX ( FILTER ( _ranked, [rk] <= r ), [Sales] ) )
+			VAR _totalSales = SUMX ( _weeks, [Sales] )
+			VAR _fullWeeks  = COUNTROWS ( FILTER ( _cum, [cum] <= _oh ) )
+			VAR _lastCum    = COALESCE ( MAXX ( FILTER ( _cum, [cum] <= _oh ), [cum] ), 0 )
+			VAR _nextSales  = MINX ( TOPN ( 1, FILTER ( _cum, [cum] > _oh ), [rk], ASC ), [Sales] )
+			VAR _frac       = DIVIDE ( _oh - _lastCum, _nextSales, 0 )
+			RETURN
+			IF ( _oh <= 0, BLANK (),
+			    IF ( _totalSales < _oh,
+			        BLANK (),                          -- historia insuficiente para consumir el on-hand
+			        ( _fullWeeks + _frac ) * 7 ) )
+		formatString: 0
+		lineageTag: d40a3e79-fdb5-409c-bccf-2a6c8b1554f3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Days of Sales Coverage (card)' =
+			
+			VAR _d = [Days of Sales Coverage]
+			RETURN IF ( ISBLANK ( _d ) && [Sellable Now] > 0,
+			    "> " & 12 * 7 & " days",
+			    FORMAT ( _d, "0" ) & " days" )
+		lineageTag: 35ff8ea8-03ff-4359-9202-55a9f26b2db0
+
+	measure 'Sellable Now' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			CALCULATE (
+			      SUM ( fct_inventory_batch[tqoh_cases] )
+			    - SUM ( fct_inventory_batch[on_hold_cases] )
+			    - SUM ( fct_inventory_batch[blocked_cases] )
+			    - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap
+			)
+		lineageTag: 4f2d5423-8912-4f4e-afb7-231461cac240
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Last Actuals Week' =
+			
+			CALCULATE ( MAX ( Weekly_Actuals[Week] ), REMOVEFILTERS ( Weekly_Actuals ) )
+		formatString: General Date
+		lineageTag: f803c54c-3340-42b2-aae4-3dd3fc501d32
+
+	measure 'Weekly Sales' = SUM ( Weekly_Actuals[Sales_Cases] )
+		lineageTag: 0f2d4ee2-f56c-4a5a-872c-15dd6a0ddb6b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Forecast' = SUM ( is_sku_ef[Forecast_Cases] )
+		lineageTag: 7a1e49f3-ea8d-43e8-872c-0db4d8221cf0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Projection' =
+			
+			VAR _wk = MAX ( CAT_Calendario[week_start_date] )
+			RETURN IF ( _wk <= [Last Actuals Week], [Weekly Sales], [Weekly Forecast] )
+		lineageTag: 1b2810a1-3d75-4279-803e-030a75a79c08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Demand (Basis)' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Demand Basis'[Basis], "Projection" ),
+			    "Sales",    [Weekly Sales],
+			    "Forecast", [Weekly Forecast],
+			    [Weekly Projection]
+			)
+		lineageTag: 83bc6806-fa90-4e0a-b2fd-1b2f1e6e057e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Available Inventory Wk' =
+			
+			VAR _basis    = SELECTEDVALUE ( 'Demand Basis'[Basis], "Projection" )
+			VAR _snap     = [Latest Snapshot]
+			VAR _snapWeek = CALCULATE ( MAX ( CAT_Calendario[week_start_date] ), CAT_Calendario[date] = _snap )
+			VAR _wk       = MAX ( CAT_Calendario[week_start_date] )
+			VAR _horizon  = _snapWeek + ( 13 * 7 )
+			VAR _oh       = CALCULATE ( [Sellable Now (u)], REMOVEFILTERS ( CAT_Calendario ) )
+			VAR _cum =
+			    CALCULATE ( [Forecast (u)],
+			        FILTER ( ALL ( CAT_Calendario ),
+			            CAT_Calendario[week_start_date] > _snapWeek
+			                && CAT_Calendario[week_start_date] <= _wk ) )
+			RETURN
+			IF ( _basis = "Sales", BLANK (),
+			IF ( _wk < _snapWeek || _wk > _horizon, BLANK (),
+			    _oh - COALESCE ( _cum, 0 ) ) )
+		lineageTag: cda1f736-e855-4aad-a0e0-3e69a07a8075
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Historical Sellable' =
+			
+			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			RETURN
+			SUMX (
+			    VALUES ( fct_inventory_batch[snapshot_date] ),
+			    CALCULATE (
+			        SWITCH ( _u,
+			            0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			                    CALCULATE (
+			                          SUM ( fct_inventory_batch[tqoh_cases] )
+			                        - SUM ( fct_inventory_batch[on_hold_cases] )
+			                        - SUM ( fct_inventory_batch[blocked_cases] )
+			                        - SUM ( fct_inventory_batch[on_hold_aged_cases] ) ) * [Cost per Case] ),
+			            2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			                    DIVIDE (
+			                        CALCULATE (
+			                              SUM ( fct_inventory_batch[tqoh_cases] )
+			                            - SUM ( fct_inventory_batch[on_hold_cases] )
+			                            - SUM ( fct_inventory_batch[blocked_cases] )
+			                            - SUM ( fct_inventory_batch[on_hold_aged_cases] ) ),
+			                        CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
+			            SUM ( fct_inventory_batch[tqoh_cases] )
+			                - SUM ( fct_inventory_batch[on_hold_cases] )
+			                - SUM ( fct_inventory_batch[blocked_cases] )
+			                - SUM ( fct_inventory_batch[on_hold_aged_cases] )
+			        )
+			    )
+			)
+		lineageTag: ca935ace-7a7a-4356-9e16-26f560ed5676
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Demand (hist)' =
+			
+			VAR _basis = SELECTEDVALUE ( 'Demand Basis'[Basis], "Projection" )
+			VAR _wk = MAX ( CAT_Calendario[week_start_date] )
+			RETURN IF ( _basis <> "Forecast" && _wk <= [Last Actuals Week], [Sales (u)] )
+		lineageTag: 76994388-e35f-4dcb-95b5-cfec97f67a5b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Demand (fwd)' =
+			
+			VAR _basis = SELECTEDVALUE ( 'Demand Basis'[Basis], "Projection" )
+			VAR _wk = MAX ( CAT_Calendario[week_start_date] )
+			RETURN IF ( _basis <> "Sales" && _wk > [Last Actuals Week], [Forecast (u)] )
+		lineageTag: 640771c8-92f1-427c-ab68-49e6c2c0b545
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Trend Window' =
+			
+			VAR _snap     = [Latest Snapshot]
+			VAR _snapWeek = CALCULATE ( MAX ( CAT_Calendario[week_start_date] ), CAT_Calendario[date] = _snap )
+			VAR _wk       = MAX ( CAT_Calendario[week_start_date] )
+			RETURN
+			IF (
+			    ISFILTERED ( CAT_Calendario[year] ) || ISFILTERED(CAT_Calendario[month_name]),      -- el usuario eligió periodo: manda el slicer
+			    1,
+			    IF ( _wk >= _snapWeek - 84 && _wk <= _snapWeek + 91, 1, 0 )   -- sin selección: ventana default
+			)
+		formatString: 0
+		lineageTag: b27236df-d0af-4531-a31d-7bbac4943579
+
+	measure 'Cost per Case' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			DIVIDE (
+			    CALCULATE ( SUM ( fct_inventory_batch[total_value_usd] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			        fct_inventory_batch[snapshot_date] = _snap ),
+			    CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			        fct_inventory_batch[snapshot_date] = _snap ) )
+		lineageTag: 19ab357c-9396-4105-9e4c-628f8a2754c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales (u)' =
+			
+			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			RETURN
+			SWITCH ( _u,
+			    0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            CALCULATE ( SUM ( Weekly_Actuals[Sales_Cases] ) ) * [Cost per Case] ),
+			    2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            DIVIDE ( CALCULATE ( SUM ( Weekly_Actuals[Sales_Cases] ) ),
+			                     CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
+			    SUM ( Weekly_Actuals[Sales_Cases] ) )
+		lineageTag: 27d4d93c-e754-43df-88bf-989c401aaee0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast (u)' =
+			
+			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			RETURN
+			SWITCH ( _u,
+			    0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ) ) * [Cost per Case] ),
+			    2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            DIVIDE ( CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ) ),
+			                     CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
+			    SUM ( is_sku_ef[Forecast_Cases] ) )
+		lineageTag: d2e7675a-02e6-43e2-91b3-f99e8543d2e0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sellable Now (u)' =
+			
+			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			RETURN
+			SWITCH ( _u,
+			    0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            CALCULATE ( [Sellable Now] ) * [Cost per Case] ),
+			    2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            DIVIDE ( CALCULATE ( [Sellable Now] ),
+			                     CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
+			    [Sellable Now] )
+		lineageTag: c9a40b9c-3327-4d2c-85a2-49933001e0ec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventory (hist)' =
+			
+			VAR _basis = SELECTEDVALUE ( 'Demand Basis'[Basis], "Projection" )
+			VAR _u     = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			VAR _snap  = [Latest Snapshot]
+			VAR _wk    = MAX ( CAT_Calendario[week_start_date] )
+			VAR _snapWeek =
+			    CALCULATE ( MAX ( CAT_Calendario[week_start_date] ), CAT_Calendario[date] = _snap )
+			VAR _anchor =
+			    CALCULATE ( MAX ( fct_inventory_batch[snapshot_date] ),
+			        REMOVEFILTERS ( fct_inventory_batch ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        fct_inventory_batch[snapshot_date] <= _wk + 6 )      -- ← + 6: cubre la semana completa
+			VAR _anchorWeek =
+			    CALCULATE ( MAX ( CAT_Calendario[week_start_date] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        CAT_Calendario[date] = _anchor )
+			VAR _ohAnchorCases =
+			    CALCULATE (
+			          SUM ( fct_inventory_batch[tqoh_cases] )
+			        - SUM ( fct_inventory_batch[on_hold_cases] )
+			        - SUM ( fct_inventory_batch[blocked_cases] )
+			        - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			        fct_inventory_batch[snapshot_date] = _anchor )
+			VAR _ohAnchor =
+			    SWITCH ( _u,
+			        0, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			                CALCULATE (
+			                      SUM ( fct_inventory_batch[tqoh_cases] )
+			                    - SUM ( fct_inventory_batch[on_hold_cases] )
+			                    - SUM ( fct_inventory_batch[blocked_cases] )
+			                    - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			                    fct_inventory_batch[snapshot_date] = _anchor ) * [Cost per Case] ),
+			        2, SUMX ( VALUES ( CAT_Material_Master[Material___Key] ),
+			                DIVIDE (
+			                    CALCULATE (
+			                          SUM ( fct_inventory_batch[tqoh_cases] )
+			                        - SUM ( fct_inventory_batch[on_hold_cases] )
+			                        - SUM ( fct_inventory_batch[blocked_cases] )
+			                        - SUM ( fct_inventory_batch[on_hold_aged_cases] ),
+			                        REMOVEFILTERS ( CAT_Calendario ),
+			                        REMOVEFILTERS ( fct_inventory_batch[snapshot_date] ),
+			                        fct_inventory_batch[snapshot_date] = _anchor ),
+			                    CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ),
+			        _ohAnchorCases )
+			VAR _cumSales =
+			    CALCULATE ( [Sales (u)],
+			        FILTER ( ALL ( CAT_Calendario ),
+			            CAT_Calendario[week_start_date] > _anchorWeek
+			                && CAT_Calendario[week_start_date] <= _wk ) )
+			RETURN
+			IF ( _basis = "Forecast", BLANK (),
+			IF ( ISBLANK ( _anchor ) || _wk > _snapWeek, BLANK (),
+			    _ohAnchor - COALESCE ( _cumSales, 0 ) ) )
+		lineageTag: e2f422dd-b124-430c-94e4-df22be9d9f77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target Inventory (u)' =
+			
+			VAR _u    = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			VAR _snap = [Latest Snapshot]
+			VAR _snapWeek = CALCULATE ( MAX ( CAT_Calendario[week_start_date] ), CAT_Calendario[date] = _snap )
+			VAR _wk   = MAX ( CAT_Calendario[week_start_date] )
+			VAR _inWindow = _wk >= _snapWeek - 84 && _wk <= _snapWeek + 91
+			VAR _mats =
+			    FILTER (
+			        VALUES ( CAT_Material_Master[Material___Key] ),
+			        CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) ) > 0
+			    )
+			VAR _tgtCases =
+			    SUMX (
+			        _mats,
+			        VAR _t = CALCULATE ( MAX ( is_target_by_sku[DFC_Target_@_98.5%_CFR] ) )
+			        VAR _d = CALCULATE ( DIVIDE ( SUM ( is_sku_ef[Forecast_Cases] ), 7 * 13 ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    is_sku_ef[Week] > _snap,
+			                    is_sku_ef[Week] <= _snap + ( 13 * 7 ) )
+			        RETURN IF ( NOT ISBLANK ( _t ) && _d > 0, _t * _d )
+			    )
+			RETURN
+			IF ( NOT _inWindow, BLANK (),
+			    SWITCH ( _u,
+			        0, SUMX (
+			                _mats,
+			                VAR _t = CALCULATE ( MAX ( is_target_by_sku[DFC_Target_@_98.5%_CFR] ) )
+			                VAR _d = CALCULATE ( DIVIDE ( SUM ( is_sku_ef[Forecast_Cases] ), 7 * 13 ),
+			                            REMOVEFILTERS ( CAT_Calendario ),
+			                            is_sku_ef[Week] > _snap,
+			                            is_sku_ef[Week] <= _snap + ( 13 * 7 ) )
+			                RETURN IF ( NOT ISBLANK ( _t ) && _d > 0, _t * _d * [Cost per Case] ) ),
+			        2, SUMX (
+			                _mats,
+			                VAR _t = CALCULATE ( MAX ( is_target_by_sku[DFC_Target_@_98.5%_CFR] ) )
+			                VAR _d = CALCULATE ( DIVIDE ( SUM ( is_sku_ef[Forecast_Cases] ), 7 * 13 ),
+			                            REMOVEFILTERS ( CAT_Calendario ),
+			                            is_sku_ef[Week] > _snap,
+			                            is_sku_ef[Week] <= _snap + ( 13 * 7 ) )
+			                RETURN IF ( NOT ISBLANK ( _t ) && _d > 0,
+			                    DIVIDE ( _t * _d, CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ) ) ),
+			        _tgtCases
+			    )
+			)
+		lineageTag: 82fdf16a-a346-4408-80e4-5b62d861f845
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Test Fcst Predicate' =
+			
+			CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			    REMOVEFILTERS ( CAT_Calendario ),
+			    is_sku_ef[Week] = DATE ( 2026, 7, 5 ) )
+		lineageTag: 3e40eb93-2456-4189-9776-1e7ea791de77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Test Dup Rows' =
+			
+			COUNTROWS ( is_sku_ef )
+			    - COUNTROWS ( SUMMARIZE ( is_sku_ef, is_sku_ef[Item], is_sku_ef[Plant_Key], is_sku_ef[Week] ) )
+		formatString: 0
+		lineageTag: b119622c-be30-4b84-9bc6-7c237091964a
+
+	measure 'Test Implied Days' =
+			
+			VAR _snap = [Latest Snapshot]
+			VAR _daily =
+			    SUMX (
+			        FILTER ( VALUES ( CAT_Material_Master[Material___Key] ),
+			            CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) ) > 0 ),
+			        CALCULATE ( DIVIDE ( SUM ( is_sku_ef[Forecast_Cases] ), 7 * 13 ),
+			            REMOVEFILTERS ( CAT_Calendario ),
+			            is_sku_ef[Week] > _snap, is_sku_ef[Week] <= _snap + ( 13 * 7 ) ) )
+			RETURN DIVIDE ( [Target Inventory (u)], _daily )
+		lineageTag: 4fd08326-0917-434c-921f-e2aff7edb62b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Days Forecast Coverage' =
+			
+			VAR _snap = [Latest Snapshot]
+			VAR _oh   = CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) )
+			VAR _weeks =
+			    ADDCOLUMNS (
+			        CALCULATETABLE ( DISTINCT ( is_sku_ef[Week] ),
+			            REMOVEFILTERS ( CAT_Calendario ),
+			            is_sku_ef[Week] > _snap,
+			            is_sku_ef[Week] <= _snap + ( 26 * 7 ) ),
+			        "Fcst", CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ), REMOVEFILTERS ( CAT_Calendario ) ),
+			        "Cum",
+			            VAR w = [Week]
+			            RETURN CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			                REMOVEFILTERS ( CAT_Calendario ),
+			                is_sku_ef[Week] > _snap, is_sku_ef[Week] <= w )
+			    )
+			VAR _totalFcst = MAXX ( _weeks, [Cum] )
+			VAR _fullWeeks = COUNTROWS ( FILTER ( _weeks, [Cum] <= _oh ) )
+			VAR _lastCum   = COALESCE ( MAXX ( FILTER ( _weeks, [Cum] <= _oh ), [Cum] ), 0 )
+			VAR _firstOver = MINX ( FILTER ( _weeks, [Cum] > _oh ), [Week] )
+			VAR _nextFcst  = MAXX ( FILTER ( _weeks, [Week] = _firstOver ), [Fcst] )
+			VAR _frac      = DIVIDE ( _oh - _lastCum, _nextFcst, 0 )
+			RETURN
+			IF ( _oh <= 0, BLANK (),
+			    IF ( _totalFcst < _oh, 182, ( _fullWeeks + _frac ) * 7 ) )
+		formatString: 0
+		lineageTag: 133e13c1-a241-4c07-8def-9d042e523e4e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inventory Turns' =
+			
+			VAR _snap = [Latest Snapshot]
+			VAR _sales12w =
+			    CALCULATE ( SUM ( Weekly_Actuals[Sales_Cases] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        Weekly_Actuals[Week] > _snap - 84,
+			        Weekly_Actuals[Week] <= _snap )
+			VAR _oh = CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) )
+			RETURN DIVIDE ( _sales12w * ( 52 / 12 ), _oh )
+		lineageTag: 4ffc5246-8c21-4356-bea2-6fa911a5640e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DFC Projected (wk)' =
+			
+			VAR _snap     = [Latest Snapshot]
+			VAR _snapWeek = CALCULATE ( MAX ( CAT_Calendario[week_start_date] ), CAT_Calendario[date] = _snap )
+			VAR _wk       = MAX ( CAT_Calendario[week_start_date] )
+			VAR _oh       = CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) )
+			VAR _consumed =
+			    CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        is_sku_ef[Week] > _snap,
+			        is_sku_ef[Week] <= _wk + 6 )
+			VAR _remInv = _oh - COALESCE ( _consumed, 0 )
+			VAR _weeks =
+			    FILTER (
+			        ADDCOLUMNS (
+			            CALCULATETABLE ( DISTINCT ( is_sku_ef[Week] ),
+			                REMOVEFILTERS ( CAT_Calendario ),
+			                is_sku_ef[Week] > _wk + 6 ),
+			            "Fcst", CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ), REMOVEFILTERS ( CAT_Calendario ) )
+			        ),
+			        [Fcst] > 0
+			    )
+			VAR _ranked = ADDCOLUMNS ( _weeks, "rk", RANKX ( _weeks, [Week], , ASC ) )
+			VAR _cum = ADDCOLUMNS ( _ranked, "cum",
+			        VAR r = [rk] RETURN SUMX ( FILTER ( _ranked, [rk] <= r ), [Fcst] ) )
+			VAR _fullWeeks = COUNTROWS ( FILTER ( _cum, [cum] <= _remInv ) )
+			VAR _lastCum   = COALESCE ( MAXX ( FILTER ( _cum, [cum] <= _remInv ), [cum] ), 0 )
+			VAR _next      = MINX ( TOPN ( 1, FILTER ( _cum, [cum] > _remInv ), [rk], ASC ), [Fcst] )
+			VAR _frac      = DIVIDE ( _remInv - _lastCum, _next, 0 )
+			RETURN
+			IF ( _wk < _snapWeek || _wk > _snapWeek + 84, BLANK (),
+			    IF ( _remInv <= 0, 0, ( _fullWeeks + _frac ) * 7 ) )
+		lineageTag: edbda714-5b7d-4d64-a025-26e93b68e02d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast 13w' =
+			
+			VAR _oh = [Sellable Now (detail)]
+			RETURN
+			IF ( ISBLANK ( _oh ) || _oh <= 0, BLANK (),
+			    VAR _u    = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			    VAR _snap = [Latest Snapshot]
+			    VAR _cs   = CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    is_sku_ef[Week] > _snap,
+			                    is_sku_ef[Week] <= _snap + ( 13 * 7 ) )
+			    RETURN
+			    SWITCH ( _u,
+			        0, _cs * [Cost per Case],
+			        2, DIVIDE ( _cs, CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ),
+			        _cs ) )
+		lineageTag: a20d8cf2-2cdf-4d8b-afa2-69ebfd96f49d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sellable Now (detail)' =
+			
+			CALCULATE ( [Sellable Now (u)], REMOVEFILTERS ( CAT_Calendario ) )
+		lineageTag: efdaffec-fe7a-4eb4-a394-6ec1b6476054
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gap @ Horizon' =
+			
+			IF ( NOT ( HASONEVALUE ( CAT_Material_Master[Material___Key] )
+			        && HASONEVALUE ( CAT_Plant_Master[Plant_-_Key] ) ), BLANK (),
+			    VAR _u    = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			    VAR _snap = [Latest Snapshot]
+			    VAR _oh   = CALCULATE ( [Sellable Now], REMOVEFILTERS ( CAT_Calendario ) )
+			    VAR _f    = CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    is_sku_ef[Week] > _snap,
+			                    is_sku_ef[Week] <= _snap + ( 13 * 7 ) )
+			    VAR _gap  = MAX ( COALESCE ( _f, 0 ) - _oh, 0 )
+			    RETURN
+			    SWITCH ( _u,
+			        0, _gap * [Cost per Case],
+			        2, DIVIDE ( _gap, CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ),
+			        _gap )
+			)
+		lineageTag: f74a4de4-d254-4f40-98c7-01754181ee68
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stockout Week' =
+			
+			IF ( NOT ( HASONEVALUE ( CAT_Material_Master[Material___Key] )
+			        && HASONEVALUE ( CAT_Plant_Master[Plant_-_Key] ) ), BLANK (),
+			    VAR _dfc = [Days Forecast Coverage]
+			    RETURN
+			    SWITCH ( TRUE (),
+			        ISBLANK ( _dfc ), BLANK (),
+			        _dfc >= 91, "No risk",                 -- fuera del horizonte táctico (13 sem)
+			        "W+" & ROUNDUP ( _dfc / 7, 0 ) ) )
+		lineageTag: ae948eee-2101-48a6-a30b-a2b1a54b8225
+
+	measure 'DFC Target Ideal' =
+			
+			IF ( [Sellable Now (detail)] > 0, MAX ( is_target_by_sku[DFC_Target_@_98.5%_CFR] ) )
+		formatString: 0
+		lineageTag: 38c1971c-b8c6-4a38-b2f1-495980f2e175
+
+	measure 'DFC Target Lower' =
+			
+			IF ( [Sellable Now (detail)] > 0, MAX ( is_target_by_sku[DFC_Target_@_85%_CFR] ) )
+		formatString: 0
+		lineageTag: d13cdfbf-546e-49da-9c20-1a1d7b317f1e
+
+	measure 'Recommended Action' =
+			
+			IF ( NOT ( HASONEVALUE ( CAT_Material_Master[Material___Key] )
+			        && HASONEVALUE ( CAT_Plant_Master[Plant_-_Key] ) ), BLANK (),
+			    VAR _oh = [Sellable Now (detail)]
+			    RETURN
+			    IF ( ISBLANK ( _oh ) || _oh <= 0, BLANK (),          -- ← el guard anti-fantasma
+			        VAR _dfc = [Days Forecast Coverage]
+			        VAR _lo  = [DFC Target Lower]
+			        VAR _hi  = [DFC Target Ideal]
+			        RETURN
+			        SWITCH ( TRUE (),
+			            ISBLANK ( _dfc ) || ISBLANK ( _lo ), "⚪ No target / demand",
+			            _dfc >= _hi, "🟢 Healthy",
+			            _dfc >= _lo, "🟡 Plan replenishment",
+			            "🔴 Reallocate now" ) ) )
+		lineageTag: 9e10f655-c5ff-4b64-9de7-dec72ed68327
+
+	measure 'At Risk Cases' =
+			
+			IF ( NOT ( HASONEVALUE ( fct_inventory_batch[sku_key] )
+			        && HASONEVALUE ( fct_inventory_batch[plant_key] )
+			        && HASONEVALUE ( fct_inventory_batch[Age] ) ), BLANK (),
+			    VAR _snap = [Latest Snapshot]
+			    VAR _oh   = CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    fct_inventory_batch[snapshot_date] = _snap )
+			    VAR _days = CALCULATE ( MIN ( fct_inventory_batch[sl_days_left] ),
+			                    REMOVEFILTERS ( CAT_Calendario ),
+			                    fct_inventory_batch[snapshot_date] = _snap )
+			    VAR _consumo =
+			        IF ( _days > 0,
+			            CALCULATE ( SUM ( is_sku_ef[Forecast_Cases] ),
+			                REMOVEFILTERS ( CAT_Calendario ),
+			                REMOVEFILTERS ( is_sku_ef[Week] ),
+			                is_sku_ef[Week] > _snap,
+			                is_sku_ef[Week] <= _snap + _days ),
+			            0 )
+			    RETURN IF ( _oh <= 0, BLANK (), MAX ( _oh - COALESCE ( _consumo, 0 ), 0 ) ) )
+		lineageTag: e71a6047-e5b3-42a9-b252-66e91856e7a1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'At Risk (u)' =
+			
+			VAR _u = SELECTEDVALUE ( 'Unit Measure'[Unit Measure Orden], 1 )
+			VAR _c = [At Risk Cases]
+			RETURN
+			IF ( ISBLANK ( _c ), BLANK (),
+			    SWITCH ( _u,
+			        0, _c * [Cost per Case],
+			        2, DIVIDE ( _c, CALCULATE ( MAX ( CAT_Material_Master[Cases_per_Pallet] ) ) ),
+			        _c ) )
+		lineageTag: 16b55eaa-6e03-434e-bcad-3390bff3efc6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'At Risk $' =
+			
+			VAR _c = [At Risk Cases]
+			RETURN IF ( ISBLANK ( _c ), BLANK (), _c * [Cost per Case] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 51479de0-2dbc-45f2-a101-d25abcc7f255
+
+	measure 'Total Value (aging)' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			CALCULATE (
+			    SUM ( fct_inventory_batch[total_value_usd] ),
+			    REMOVEFILTERS ( CAT_Calendario ),
+			    fct_inventory_batch[snapshot_date] = _snap
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 536ce051-1068-41f4-9954-e820a62a88cb
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Worst SS Days' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			CALCULATE (
+			    MIN ( fct_inventory_batch[ss_days_left] ),
+			    REMOVEFILTERS ( CAT_Calendario ),
+			    fct_inventory_batch[snapshot_date] = _snap
+			)
+		formatString: 0
+		lineageTag: 4141c954-a0f2-4268-98b2-3b2f2a5e3a06
+
+	measure 'Worst Age Bucket' =
+			
+			VAR _d = [Worst SS Days]
+			RETURN
+			SWITCH (
+			    TRUE (),
+			    ISBLANK ( _d ),   "No date (BW gap)",
+			    _d < 0,           "Past Stop Ship",
+			    _d <= 30,         "< 30 days",
+			    _d <= 60,         "< 60 days",
+			    _d <= 90,         "< 90 days",
+			    _d <= 120,        "< 120 days",
+			    "Healthy (121+)"
+			)
+		lineageTag: 6f204de1-bbbc-4c23-8b06-af0b7b5204cc
+
+	measure 'Earliest Stop Ship Date' =
+			
+			VAR _snap = [Latest Snapshot]
+			VAR _d =
+			    CALCULATE (
+			        MIN ( fct_inventory_batch[ss_date] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        fct_inventory_batch[snapshot_date] = _snap
+			    )
+			RETURN IF ( NOT ISBLANK ( _d ), FORMAT ( _d, "MMM d, yyyy", "en-US" ), "No date" )
+		lineageTag: 6c8c83a6-c0df-44fa-a384-d6e39ca08c2f
+
+	measure 'Has Inventory' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			IF (
+			    CALCULATE (
+			        SUM ( fct_inventory_batch[on_hand_cases] ),
+			        REMOVEFILTERS ( CAT_Calendario ),
+			        fct_inventory_batch[snapshot_date] = _snap
+			    ) > 0,
+			    1, 0
+			)
+		formatString: 0
+		lineageTag: 801b3832-87f3-4785-b733-ec94fc104967
+
+	measure 'Total At Risk Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			SUMX (
+			    FILTER (
+			        CALCULATETABLE (
+			            SUMMARIZE ( fct_inventory_batch, fct_inventory_batch[sku_key], fct_inventory_batch[plant_key] ),
+			            fct_inventory_batch[snapshot_date] = _snap
+			        ),
+			        [At Risk Cases] > 0
+			    ),
+			    [At Risk Cases]
+			)
+		formatString: #,0
+		lineageTag: ddb005ce-2118-4ef5-869e-72b5c6a40b94
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Total At Risk $' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			SUMX (
+			    FILTER (
+			        CALCULATETABLE (
+			            SUMMARIZE ( fct_inventory_batch, fct_inventory_batch[sku_key], fct_inventory_batch[plant_key] ),
+			            fct_inventory_batch[snapshot_date] = _snap
+			        ),
+			        [At Risk Cases] > 0
+			    ),
+			    [At Risk $]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b441afbf-9fe1-4238-bd10-8dc40be55405
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Blocked Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[blocked_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		formatString: #,0
+		lineageTag: a79bf599-56b8-4e80-afb6-2f3069cce375
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'On-Hand Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[on_hand_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		formatString: #,0
+		lineageTag: e1403083-64ae-40ed-b7c1-f2224dc966f6
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'On-Hold Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[on_hold_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		formatString: #,0
+		lineageTag: 7faea606-b9d3-40a4-81c5-92960cd8d011
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'On-Hold Aged Cases' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN CALCULATE ( SUM ( fct_inventory_batch[on_hold_aged_cases] ),
+			    fct_inventory_batch[snapshot_date] = _snap )
+		formatString: 0
+		lineageTag: b43b847e-d942-479b-ae6c-917cf1a8e86a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'At Risk (Sales)' =
+			
+			IF ( NOT ( HASONEVALUE ( fct_inventory_batch[sku_key] )
+			        && HASONEVALUE ( fct_inventory_batch[plant_key] )
+			        && HASONEVALUE ( fct_inventory_batch[Age] ) ), BLANK (),
+			    VAR _snap = [Latest Snapshot]
+			    VAR _oh   = CALCULATE ( SUM ( fct_inventory_batch[tqoh_cases] ),
+			                    REMOVEFILTERS ( CAT_Calendario ), fct_inventory_batch[snapshot_date] = _snap )
+			    VAR _days = CALCULATE ( MIN ( fct_inventory_batch[sl_days_left] ),
+			                    REMOVEFILTERS ( CAT_Calendario ), fct_inventory_batch[snapshot_date] = _snap )
+			    VAR _rate = CALCULATE ( MAX ( fct_inventory_batch[Avg Daily Sales SKU] ),
+			                    REMOVEFILTERS ( CAT_Calendario ), fct_inventory_batch[snapshot_date] = _snap )
+			    VAR _consumo = IF ( _days > 0, COALESCE ( _rate, 0 ) * _days, 0 )   -- tasa negativa se trata como 0 vía COALESCE + el MAX final
+			    RETURN IF ( _oh <= 0, BLANK (), MAX ( _oh - _consumo, 0 ) ) )
+		formatString: 0
+		lineageTag: 96d9c71a-10b7-4c8f-8572-db67546cdf6f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Medida
+		lineageTag: b5b604c0-461f-4194-b2dd-bc64b73cfb75
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Total Unsellable (Sales) $' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			SUMX (
+			    FILTER (
+			        CALCULATETABLE (
+			            SUMMARIZE ( fct_inventory_batch, fct_inventory_batch[sku_key], fct_inventory_batch[plant_key] ),
+			            fct_inventory_batch[snapshot_date] = _snap
+			        ),
+			        [At Risk (Sales)] > 0
+			    ),
+			    [At Risk (Sales)] * CALCULATE ( MAX ( fct_inventory_batch[cost_per_case] ),
+			                            fct_inventory_batch[snapshot_date] = _snap )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f95d2493-3310-4fa0-8506-5cc68ee10e4a
+
+	measure 'Total Unsellable (Sales) cs' =
+			
+			VAR _snap = [Latest Snapshot]
+			RETURN
+			SUMX (
+			    FILTER (
+			        CALCULATETABLE (
+			            SUMMARIZE ( fct_inventory_batch, fct_inventory_batch[sku_key], fct_inventory_batch[plant_key] ),
+			            fct_inventory_batch[snapshot_date] = _snap
+			        ),
+			        [At Risk (Sales)] > 0
+			    ),
+			    [At Risk (Sales)]
+			)
+		formatString: #,0
+		lineageTag: 5648574d-ebb8-41b3-b038-e71a07bfe358
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure max_stor_per =
+			
+			IF (
+			    NOT ISBLANK ( fct_inventory_batch[ss_date] )
+			        && NOT ISBLANK ( fct_inventory_batch[sled_date] ),
+			    fct_inventory_batch[sl_days]
+			        - DATEDIFF ( fct_inventory_batch[ss_date], fct_inventory_batch[sled_date], DAY )
+			)
+		lineageTag: 5009c936-e306-4656-b7df-35232809673c
+
+	partition 'Measures Inventory' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

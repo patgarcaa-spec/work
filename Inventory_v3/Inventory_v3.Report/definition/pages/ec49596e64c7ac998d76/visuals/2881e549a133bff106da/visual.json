@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "2881e549a133bff106da",
+  "position": {
+    "x": 1138.3333333333335,
+    "y": 271.66666666666669,
+    "z": 20000,
+    "height": 300,
+    "width": 435,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "VAR_CATEGORY_NEW_IBP"
+                }
+              },
+              "queryRef": "CAT_Material_Master.VAR_CATEGORY_NEW_IBP",
+              "nativeQueryRef": "Category",
+              "active": true,
+              "displayName": "Category"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "_Active Measure"
+                }
+              },
+              "queryRef": "Measures Inventory._Active Measure",
+              "nativeQueryRef": " ",
+              "displayName": " "
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Inventory"
+                  }
+                },
+                "Property": "_Active Measure"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inventory Value by Category'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

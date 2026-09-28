@@ -1,0 +1,148 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "78e06f0dd280e50b1a87",
+  "position": {
+    "x": 332.85714285714289,
+    "y": 571.42857142857144,
+    "z": 18000,
+    "height": 28.571428571428573,
+    "width": 42.857142857142861,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "actionButton",
+    "objects": {
+      "icon": [
+        {
+          "properties": {
+            "shapeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'information'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "text": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sellable Now = inventory available to ship today. Total On-Hand (TQOH) − On Hold − Blocked − Aged Hold'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Back'"
+                }
+              }
+            },
+            "enabledTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sellable Now = Total On-Hand (TQOH) − On Hold − Blocked − Aged Hold'"
+                }
+              }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Healthy — no risk flag; covered within its shelf-life and stop-ship dates. Excess — healthy stock above its target coverage (integration pending). Aging — held in inventory 120+ days since manufacture. Shelf-Life — 30 days or less of shelf life remaining. Stop Ship — past its stop-ship date; no longer shippable. No Forecast — on-hand inventory with no demand; stranded-stock risk. Unknown — batches missing stop-ship / shelf-life dates in the source data; cannot be risk-classified yet (data-quality finding, under review).'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sellable Now = inventory available to ship today.\nTotal On-Hand (TQOH) − On Hold − Blocked − Aged Hold'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
+}

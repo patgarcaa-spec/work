@@ -1,0 +1,1136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a4d9916946102c6737e1",
+  "position": {
+    "x": 16.417910447761194,
+    "y": 714.92537313432831,
+    "z": 21000,
+    "height": 444.77611940298505,
+    "width": 1568.6567164179103,
+    "tabOrder": 21000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material___Key"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material___Key",
+              "nativeQueryRef": "Item",
+              "displayName": "Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "queryRef": "CAT_Material_Master.Material",
+              "nativeQueryRef": "Description",
+              "displayName": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Material_Master"
+                    }
+                  },
+                  "Property": "BU"
+                }
+              },
+              "queryRef": "CAT_Material_Master.BU",
+              "nativeQueryRef": "BU"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_inventory_batch"
+                    }
+                  },
+                  "Property": "Plant Name"
+                }
+              },
+              "queryRef": "fct_inventory_batch.Plant Name",
+              "nativeQueryRef": "Plant Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Worst Age Bucket"
+                }
+              },
+              "queryRef": "Measures Inventory.Worst Age Bucket",
+              "nativeQueryRef": "Worst Age Bucket"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Worst SS Days"
+                }
+              },
+              "queryRef": "Measures Inventory.Worst SS Days",
+              "nativeQueryRef": "Worst SS Days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Earliest Stop Ship Date"
+                }
+              },
+              "queryRef": "Measures Inventory.Earliest Stop Ship Date",
+              "nativeQueryRef": "Earliest Stop Ship Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "_Active Measure"
+                }
+              },
+              "queryRef": "Measures Inventory._Active Measure",
+              "nativeQueryRef": "Total On-Hand",
+              "displayName": "Total On-Hand"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total At Risk Cases"
+                }
+              },
+              "queryRef": "Measures Inventory.Total At Risk Cases",
+              "nativeQueryRef": "Unsellable (cs)",
+              "displayName": "Unsellable (cs)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total At Risk $"
+                }
+              },
+              "queryRef": "Measures Inventory.Total At Risk $",
+              "nativeQueryRef": "Unsellable $",
+              "displayName": "Unsellable $"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Total Value (aging)"
+                }
+              },
+              "queryRef": "Measures Inventory.Total Value (aging)",
+              "nativeQueryRef": "Total Value ($)",
+              "displayName": "Total Value ($)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Inventory"
+                  }
+                },
+                "Property": "Worst SS Days"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E8F1F9'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 120 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#EDD37A'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'No Date'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#898781'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Healthy (121+)'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#4C9A4C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 90 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F2C94C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 60 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#EE9A2E'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 30 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#E0613C'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Past Stop Ship'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#A32C2C'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'No Date'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Healthy (121+)'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 120 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#000000'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 90 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#000000'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 60 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#fff'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'< 30 days'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#fff'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Measures Inventory"
+                                    }
+                                  },
+                                  "Property": "Worst Age Bucket"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Past Stop Ship'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FFFFFF'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Measures Inventory.Worst Age Bucket"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.Material___Key"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.94029535877623D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.BU"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "218.21117653008577D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAT_Material_Master.Material"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "264.13342048843333D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fct_inventory_batch.Plant Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.95043706343816D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Worst Age Bucket"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.6545059989948D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Total Value (aging)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139.33334463613602D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Earliest Stop Ship Date"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "425953b5078d341ba8d5",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "At Risk Cases"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "365df260cde290210018",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "At Risk $"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "0d895512db3958bd1108",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "BU"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ac78bed484c3dc1aa395",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "Material"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "56cff5ffe16c1fd85c6c",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Earliest Stop Ship Date"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "16fcfbde29afdd7b6f0a",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CAT_Material_Master"
+              }
+            },
+            "Property": "Material___Key"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "486e1064982c4efa82a0",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "_Active Measure"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Measures Inventory",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "_Active Measure"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "6a3470052a92f6301638",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_inventory_batch"
+              }
+            },
+            "Property": "Plant Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5ddb651c06172535e8fe",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Total Value (aging)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dbcb6543c843bbbd4912",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Worst Age Bucket"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "860bc8a4b915a5e75164",
+        "ordinal": 10,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Has Inventory"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "7283081f56471418b949",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Worst SS Days"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "110f0847a2a778279001",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Total At Risk Cases"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e30821024c96d9005053",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Total At Risk $"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

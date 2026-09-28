@@ -1,0 +1,654 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1d94b44807fe079b857a",
+  "position": {
+    "x": 17.832975081601781,
+    "y": 271.06122124034709,
+    "z": 19000,
+    "height": 288.33333333333337,
+    "width": 1075,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CAT_Calendario"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "week_start_date"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Año"
+                }
+              },
+              "queryRef": "CAT_Calendario.week_start_date.Variación.Jerarquía de fechas.Año",
+              "nativeQueryRef": "week_start_date Año",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CAT_Calendario"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "week_start_date"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Mes"
+                }
+              },
+              "queryRef": "CAT_Calendario.week_start_date.Variación.Jerarquía de fechas.Mes",
+              "nativeQueryRef": "week_start_date Mes",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CAT_Calendario"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "week_start_date"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Día"
+                }
+              },
+              "queryRef": "CAT_Calendario.week_start_date.Variación.Jerarquía de fechas.Día",
+              "nativeQueryRef": "week_start_date Día",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Inventory (hist)"
+                }
+              },
+              "queryRef": "Measures Inventory.Inventory (hist)",
+              "nativeQueryRef": "Inventory (hist)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Available Inventory Wk"
+                }
+              },
+              "queryRef": "Measures Inventory.Available Inventory Wk",
+              "nativeQueryRef": "Available Inventory Wk"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Demand (hist)"
+                }
+              },
+              "queryRef": "Measures Inventory.Demand (hist)",
+              "nativeQueryRef": "Demand (hist)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Demand (fwd)"
+                }
+              },
+              "queryRef": "Measures Inventory.Demand (fwd)",
+              "nativeQueryRef": "Demand (fwd)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Historical Sellable"
+                }
+              },
+              "queryRef": "Measures Inventory.Historical Sellable",
+              "nativeQueryRef": "Historical Sellable"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Inventory"
+                    }
+                  },
+                  "Property": "Target Inventory (u)"
+                }
+              },
+              "queryRef": "Measures Inventory.Target Inventory (u)",
+              "nativeQueryRef": "Target Inventory (u)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Inventory"
+                  }
+                },
+                "Property": "Target Inventory"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "gridlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Available Inventory Wk"
+          }
+        },
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Demand (hist)"
+          }
+        },
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Demand (fwd)"
+          }
+        },
+        {
+          "properties": {
+            "strokeShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Historical Sellable"
+          }
+        },
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Target Inventory (u)"
+          }
+        }
+      ],
+      "y2Axis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2A78D6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Inventory (hist)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2A78D6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Available Inventory Wk"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E66C37'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Demand (fwd)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#008300'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures Inventory.Target Inventory (u)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inventory Exposure Trend'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "51d4590d1cfce98df2c8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Trend Window"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "83796352044d06248563",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CAT_Calendario"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "week_start_date"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "122bbbbd4e4727c36b3d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CAT_Calendario"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "week_start_date"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "18436539626e23b0563e",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CAT_Calendario"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "week_start_date"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Día"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d759dcd0bc71bd06b04",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Inventory (hist)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eca200e5619c0aa76920",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Available Inventory Wk"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "67f75f6f42d64544351d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Demand (hist)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b9d8579e450d804589c7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Demand (fwd)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "26fd7cef771600e50452",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Historical Sellable"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "583d4299d1dc34aa100c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Inventory"
+              }
+            },
+            "Property": "Target Inventory (u)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,234 @@
+table Weekly_Actuals
+	lineageTag: 2c67c5c5-c152-4ee0-b71a-bb5b5f3a415c
+
+	column SKU
+		dataType: int64
+		formatString: 0
+		lineageTag: 967bbfef-8ab8-47c6-84c7-7388243ad59b
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: db646b32-3027-4fd6-940c-d67c078c88d1
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e7aff8c8-d58b-4dc9-8e1f-61d1a00687b4
+		summarizeBy: none
+		sourceColumn: Week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YearWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 67337ada-f8f3-4014-8f03-bb78a8dcca80
+		summarizeBy: sum
+		sourceColumn: YearWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material
+		dataType: string
+		lineageTag: 6704ae1c-3192-4aa3-8f89-0b2fa4c3f26f
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU
+		dataType: string
+		lineageTag: edc4bf4f-2add-4106-ae72-07dee3dc1dbd
+		summarizeBy: none
+		sourceColumn: BU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: f00e1adc-d4e4-41b5-b1b8-03dab160feae
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 55fefbf5-6e7c-4184-a0d2-d9d10a15fc61
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Lbs
+		dataType: double
+		lineageTag: 88f52251-3d4c-4566-be65-aa4edcc1a35f
+		summarizeBy: sum
+		sourceColumn: Sales_Lbs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Promo_Group
+		dataType: string
+		lineageTag: 998e0247-ce8c-4d7e-9b1d-5262a84190b1
+		summarizeBy: none
+		sourceColumn: Promo_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel
+		dataType: string
+		lineageTag: f5dd4af9-173c-402d-85e6-2799a32a99a0
+		summarizeBy: none
+		sourceColumn: Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_Code
+		dataType: string
+		lineageTag: ca6ee0e6-f1b3-439e-8bb6-5df468122739
+		summarizeBy: none
+		sourceColumn: Class_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 2400f34a-6bf6-4b34-ad54-69138568c892
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 651c355b-6883-4a79-90dc-899feaa477d0
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jerarquia_Aplicada_NSV
+		dataType: string
+		lineageTag: 7cf3fabc-c294-4db2-9fd7-3f11ce98da16
+		summarizeBy: none
+		sourceColumn: Jerarquia_Aplicada_NSV
+
+		annotation SummarizationSetBy = Automatic
+
+	column Final_NSV_Rate
+		dataType: double
+		lineageTag: ad8dc9f9-1f98-4f4c-8dfa-9381b24edbf6
+		summarizeBy: sum
+		sourceColumn: Final_NSV_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Final_GSV_Rate
+		dataType: double
+		lineageTag: 124a703e-4c1b-486f-bb04-630976423c8d
+		summarizeBy: sum
+		sourceColumn: Final_GSV_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Calculated_Net_Sales
+		dataType: double
+		lineageTag: b750d601-1f20-43ca-a32b-a5c8f6f84801
+		summarizeBy: sum
+		sourceColumn: Calculated_Net_Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Calculated_Gross_Sales
+		dataType: double
+		lineageTag: da489c62-37a1-4d7d-9e8a-37e83771d7ee
+		summarizeBy: sum
+		sourceColumn: Calculated_Gross_Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales_Cases
+		dataType: double
+		lineageTag: 11978218-7cf3-453d-b2b3-00bcdca3a450
+		summarizeBy: sum
+		sourceColumn: Sales_Cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Weekly_Actuals = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Silver_weekly_actuals_finance = Origen{[Schema="Silver",Item="weekly_actuals_finance"]}[Data],
+				
+				    // 1. Solo Actuals y solo filas con valor real (fuera los placeholders en cero de semanas futuras)
+				    SoloActuals = Table.SelectRows(Silver_weekly_actuals_finance,
+				        each [Type] = "Actuals" and [Value] <> null and [Value] <> 0),
+				
+				    // 2. Quitar ruido (el dedup no es necesario: los archivos extra traen la semana en cero)
+				    SinRuido = Table.RemoveColumns(SoloActuals,
+				        {"FilePath", "Attribute", "Secondary", "Type"}, MissingField.Ignore),
+				
+				    // 3. Merge con Material Master para traer Pounds_Per_Case
+				    Merged = Table.NestedJoin(SinRuido, {"SKU"},
+				        CAT_Material_Master, {"Material___Key"},
+				        "MM", JoinKind.LeftOuter),
+				    ConPPC = Table.ExpandTableColumn(Merged, "MM", {"Pounds_Per_Case"}),
+				
+				    // 4. Renombrar Value -> Sales_Lbs (la unidad real de finanzas es libras)
+				    Renombrado = Table.RenameColumns(ConPPC, {{"Value", "Sales_Lbs"}}),
+				
+				    // 5. Conversión libras -> cases (por SKU, con su Pounds_Per_Case)
+				    ConCases = Table.AddColumn(Renombrado, "Sales_Cases",
+				        each if [Pounds_Per_Case] <> null and [Pounds_Per_Case] > 0
+				             then [Sales_Lbs] / [Pounds_Per_Case]
+				             else null, type number),
+				
+				    SinPPC = Table.RemoveColumns(ConCases, {"Pounds_Per_Case"}),
+				
+				    // 6. Tipos finales
+				    Tipado = Table.TransformColumnTypes(SinPPC, {
+				        {"SKU", Int64.Type},
+				        {"Week", type date},
+				        {"YearWeek", Int64.Type},
+				        {"Sales_Lbs", type number},
+				        {"Sales_Cases", type number},
+				        {"Source", type text},
+				        {"BU", type text},
+				        {"Category", type text},
+				        {"Brand", type text},
+				        {"Material", type text}
+				    })
+				in
+				    Tipado
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

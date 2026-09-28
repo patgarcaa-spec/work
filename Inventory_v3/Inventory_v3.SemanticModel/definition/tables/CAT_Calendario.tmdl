@@ -1,0 +1,530 @@
+table CAT_Calendario
+	lineageTag: c2b58b4d-55fc-41a5-8273-bf8c74702ab3
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3a1a2d9b-61ef-4cca-8125-d7ad1902187f
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variación
+			isDefault
+			relationship: ccc863ed-f215-4077-b5d1-c94fe4184c7b
+			defaultHierarchy: LocalDateTable_88e7f85e-e092-4d2a-8670-1e0ef675b30c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column week_start_date
+		dataType: dateTime
+		formatString: dd/mmm/yyyy
+		lineageTag: d8d15cb4-338a-48f0-bebf-c1b3205005bf
+		summarizeBy: none
+		sourceColumn: week_start_date
+
+		variation Variación
+			isDefault
+			relationship: 9da49588-a5d7-4f62-946f-ff75d9930ab6
+			defaultHierarchy: LocalDateTable_9023a66c-11c5-4cce-b768-b4a0718e605e.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column week_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a8d1f016-6777-4523-b24b-db0d9ad329ce
+		summarizeBy: none
+		sourceColumn: week_end_date
+
+		variation Variación
+			isDefault
+			relationship: fa31811e-49f1-493f-86b1-2d1fcc9e6ea0
+			defaultHierarchy: LocalDateTable_a504c387-f693-4607-9f40-a4d60c5049d8.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b574c59-ef7e-4a7e-83ec-c3839cebb80c
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 2bbfaef9-0886-423a-b9ad-66466c994fe0
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d63b8f0-9455-4506-a8ce-ecb39b9b012d
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: d65baafe-9ab0-4760-89d2-a7ce5ca7d5b3
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_short
+		dataType: string
+		lineageTag: db5aeb04-8e89-4c44-9454-9400de562396
+		summarizeBy: none
+		sourceColumn: month_short
+		sortByColumn: month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_month
+		dataType: int64
+		formatString: 0
+		lineageTag: f8323b7c-d323-47c6-8eb5-79a496a51ace
+		summarizeBy: sum
+		sourceColumn: day_of_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f52ab88-acdb-433d-813d-0956d6de102c
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekday1
+		dataType: int64
+		formatString: 0
+		lineageTag: 19623101-029a-4ba6-ab0a-48ef3f8bc327
+		summarizeBy: sum
+		sourceColumn: weekday1
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: f78e0bb9-0f33-4919-9e66-7da868a27552
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_short
+		dataType: string
+		lineageTag: 814925c6-5fa7-4531-86c9-6860f0a785d7
+		summarizeBy: none
+		sourceColumn: day_short
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_week
+		dataType: int64
+		formatString: 0
+		lineageTag: f18c7ef6-f63c-4a89-b5cd-868fac5cc45c
+		summarizeBy: sum
+		sourceColumn: period_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_iso
+		dataType: int64
+		formatString: 0
+		lineageTag: 02214a93-1f95-4faa-865a-4bdf0ae86171
+		summarizeBy: sum
+		sourceColumn: week_iso
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_week_period
+		dataType: int64
+		formatString: 0
+		lineageTag: 59d974be-f084-4a8b-9145-699a9f53e7ab
+		summarizeBy: sum
+		sourceColumn: year_week_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_week
+		dataType: string
+		lineageTag: 3bdecc4a-343a-49d2-8100-5d8b0eb61225
+		summarizeBy: none
+		sourceColumn: year_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_week_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f05fc7e-d183-4990-afe4-8c42180eca45
+		summarizeBy: sum
+		sourceColumn: year_week_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_week_label
+		dataType: string
+		lineageTag: cec57a9b-0245-4b96-b574-49b028c9743a
+		summarizeBy: none
+		sourceColumn: year_week_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_week_full
+		dataType: string
+		lineageTag: 11869580-45e6-4534-995c-543d8ce9f899
+		summarizeBy: none
+		sourceColumn: year_week_full
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_year
+		dataType: string
+		lineageTag: c2e781f7-2fdd-4bb5-8d53-57619c9bf22e
+		summarizeBy: none
+		sourceColumn: month_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_year_long
+		dataType: string
+		lineageTag: 23d8be5f-dfc2-4e9a-ac5b-5e2f46a34594
+		summarizeBy: none
+		sourceColumn: month_year_long
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: 727f6752-c069-4e30-a987-474c6e2722fe
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_quarter
+		dataType: string
+		lineageTag: 5f6fc2a2-ce56-4fc8-82ea-456e29e82bc1
+		summarizeBy: none
+		sourceColumn: year_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_of_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9a2495ac-be54-45fc-a09b-8e98c6e0eb88
+		summarizeBy: none
+		sourceColumn: start_of_month
+
+		variation Variación
+			isDefault
+			relationship: 0399c7c6-1a16-4aa9-92e7-f0de7596c18d
+			defaultHierarchy: LocalDateTable_08d65ef1-fa3d-44d0-aee7-983f041fa4b7.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 81588c95-bebf-4de5-bbb1-34c062c270ad
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_workday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e531b760-5ace-45af-8ec3-1b3f7d6f625e
+		summarizeBy: none
+		sourceColumn: is_workday
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_week_start
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d925aef8-d820-4c1f-8cc4-82ba8bf2b29e
+		summarizeBy: none
+		sourceColumn: is_week_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_week
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a9791acf-072c-4fd1-bde2-55766961e4ad
+		summarizeBy: none
+		sourceColumn: is_current_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_last_closed_week
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dca9608c-8ac5-4f9f-b5ed-8bb06b968d08
+		summarizeBy: none
+		sourceColumn: is_last_closed_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_last_week
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 762977d8-d947-4202-8b8f-2eadf57106be
+		summarizeBy: none
+		sourceColumn: is_last_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_month
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5664f57b-7945-49be-9d34-ef1c90bfdba5
+		summarizeBy: none
+		sourceColumn: is_current_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_quarter
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 308ad7f4-1072-4b4f-8ae6-8773bbd5711d
+		summarizeBy: none
+		sourceColumn: is_current_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_year
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8bf5a9e1-9ac9-4172-9c28-2a4bd84913d8
+		summarizeBy: none
+		sourceColumn: is_current_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_past
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4b7358c-af45-4c1c-8a1d-2eb43000c4eb
+		summarizeBy: none
+		sourceColumn: is_past
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_future
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c333bf1b-e559-465c-a0e3-899327934057
+		summarizeBy: none
+		sourceColumn: is_future
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_from_today
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c01116c-6fe5-4cf3-b34e-b531a1c1bc8e
+		summarizeBy: sum
+		sourceColumn: days_from_today
+
+		annotation SummarizationSetBy = Automatic
+
+	column weeks_from_current
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b2e5d3d-4724-41be-8bf5-874c283785fb
+		summarizeBy: sum
+		sourceColumn: weeks_from_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column relative_week
+		dataType: int64
+		formatString: 0
+		lineageTag: bd13da1f-adc7-44d1-bd25-26b7b15edd26
+		summarizeBy: sum
+		sourceColumn: relative_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_in_12w_outlook
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 94ecb5ba-9bbc-48a7-8f00-0f9831375ef5
+		summarizeBy: none
+		sourceColumn: is_in_12w_outlook
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_in_6w_history
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 017289a2-9926-4473-86ca-0884ead015c6
+		summarizeBy: none
+		sourceColumn: is_in_6w_history
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_in_6w_forecast
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 298a3fdf-9116-4f95-8b37-7709bba0750a
+		summarizeBy: none
+		sourceColumn: is_in_6w_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_start_label
+		dataType: string
+		lineageTag: 3c8b3d90-239a-402b-9758-f50923c46424
+		summarizeBy: none
+		sourceColumn: week_start_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CAT_Calendario = m
+		mode: import
+		source =
+				let
+				    // ====== PARAMETROS ======
+				    FechaInicio = #date(2023, 1, 1),
+				    FechaFin    = #date(2028, 12, 31),
+				    Hoy = Date.From(DateTime.LocalNow()),
+				    InicioSemanaActual = Date.AddDays(Hoy, - Date.DayOfWeek(Hoy, Day.Sunday)),
+				
+				    // ====== 1) Lista de fechas y tabla base ======
+				    DiasEntreFechas = Duration.Days(FechaFin - FechaInicio) + 1,
+				    ListaFechas = List.Dates(FechaInicio, DiasEntreFechas, #duration(1, 0, 0, 0)),
+				    TablaBase = Table.FromList(ListaFechas, Splitter.SplitByNothing(), {"date"}, null, ExtraValues.Error),
+				    TipoFecha = Table.TransformColumnTypes(TablaBase, {{"date", type date}}),
+				
+				    // ====== 2) SEMANA Sunday-based (Start_Of_Week real, igual que el cliente) ======
+				    AddWeekStart = Table.AddColumn(TipoFecha, "week_start_date",
+				        each Date.AddDays([date], - Date.DayOfWeek([date], Day.Sunday)), type date),
+				    AddWeekEnd = Table.AddColumn(AddWeekStart, "week_end_date",
+				        each Date.AddDays([week_start_date], 6), type date),
+				
+				    // ====== 3) ATRIBUTOS DE DIA (anio calendario = base de la logica del cliente) ======
+				    AddYear         = Table.AddColumn(AddWeekEnd,      "year",         each Date.Year([date]),                                  Int64.Type),
+				    AddQuarter      = Table.AddColumn(AddYear,         "quarter",      each Date.QuarterOfYear([date]),                         Int64.Type),
+				    AddMonth        = Table.AddColumn(AddQuarter,      "month",        each Date.Month([date]),                                 Int64.Type),
+				    AddMonthName    = Table.AddColumn(AddMonth,        "month_name",   each Date.MonthName([date], "en-US"),                    type text),
+				    AddMonthShort   = Table.AddColumn(AddMonthName,    "month_short",  each Text.Start(Date.MonthName([date], "en-US"), 3),     type text),
+				    AddDayOfMonth   = Table.AddColumn(AddMonthShort,   "day_of_month", each Date.Day([date]),                                   Int64.Type),
+				    AddDayOfWeek    = Table.AddColumn(AddDayOfMonth,   "day_of_week",  each Date.DayOfWeek([date], Day.Sunday) + 1,             Int64.Type),
+				    AddWeekday1     = Table.AddColumn(AddDayOfWeek,    "weekday1",     each Date.DayOfWeek([date], Day.Monday) + 1,             Int64.Type),
+				    AddDayName      = Table.AddColumn(AddWeekday1,     "day_name",     each Date.DayOfWeekName([date], "en-US"),                type text),
+				    AddDayShort     = Table.AddColumn(AddDayName,      "day_short",    each Text.Start(Date.DayOfWeekName([date], "en-US"), 3), type text),
+				
+				    // ====== 4) PERIOD WEEK (Sunday-based) -> el numero embebido en YearWeekPeriod_Index ======
+				    AddPeriodWeek = Table.AddColumn(AddDayShort, "period_week",
+				        each
+				            let
+				                yc = [year],
+				                jan1 = #date(yc, 1, 1),
+				                jan1_sow = Date.AddDays(jan1, - Date.DayOfWeek(jan1, Day.Sunday)),
+				                sow = [week_start_date]
+				            in
+				                if Date.Year(sow) < yc
+				                then 1
+				                else Number.IntegerDivide(Duration.Days(sow - jan1_sow), 7) + 1,
+				        Int64.Type),
+				
+				    // ====== 5) WEEK_ISO real (Monday-based) -> equivale a su columna Week_Of_Year ======
+				    AddWeekISO = Table.AddColumn(AddPeriodWeek, "week_iso",
+				        each
+				            let
+				                thursday = Date.AddDays([date], 3 - Date.DayOfWeek([date], Day.Monday)),
+				                isoYear  = Date.Year(thursday)
+				            in
+				                Number.IntegerDivide(Duration.Days(thursday - #date(isoYear, 1, 1)), 7) + 1,
+				        Int64.Type),
+				
+				    // ====== 6) Identificadores de periodo (replican campos del cliente) ======
+				    AddYearWeekPeriod = Table.AddColumn(AddWeekISO, "year_week_period",
+				        each [year] * 100 + [period_week], Int64.Type),
+				    AddYearWeek = Table.AddColumn(AddYearWeekPeriod, "year_week",
+				        each Text.From([year]) & "-W" & Text.PadStart(Text.From([period_week]), 2, "0"), type text),
+				    AddYearWeekSort = Table.AddColumn(AddYearWeek, "year_week_sort",
+				        each [year] * 100 + [period_week], Int64.Type),
+				    AddYearWeekLbl = Table.AddColumn(AddYearWeekSort, "year_week_label",
+				        each "W" & Text.PadStart(Text.From([period_week]), 2, "0") & " " & [month_short] & " " & Text.From([day_of_month]), type text),
+				    // NUEVA columna year_week_full (en ingles, blindada contra el locale del modelo)
+				    AddYearWeekFull = Table.AddColumn(AddYearWeekLbl, "year_week_full",
+				        each [year_week] & " - " &
+				             Date.ToText([week_start_date], [Format="MMM d", Culture="en-US"]) & " / " &
+				             Date.ToText([week_end_date], [Format="MMM d", Culture="en-US"]),
+				        type text),
+				    // NUEVA columna week_start_label (etiqueta en-US del inicio de semana, para ejes/tooltips)
+				    AddWeekStartLbl = Table.AddColumn(AddYearWeekFull, "week_start_label",
+				        each Date.ToText([week_start_date], [Format="MMM d, yyyy", Culture="en-US"]),
+				        type text),
+				    AddMonthYear    = Table.AddColumn(AddWeekStartLbl, "month_year",       each Text.PadStart(Text.From([month]), 2, "0") & Text.From([year]), type text),
+				    AddMonthYearLng = Table.AddColumn(AddMonthYear,    "month_year_long",  each [month_name] & " " & Text.From([year]), type text),
+				    AddYearMonth    = Table.AddColumn(AddMonthYearLng, "year_month",       each Text.From([year]) & "-" & Text.PadStart(Text.From([month]), 2, "0"), type text),
+				    AddYearQuarter  = Table.AddColumn(AddYearMonth,    "year_quarter",     each Text.From([year]) & "-Q" & Text.From([quarter]), type text),
+				    AddStartOfMonth = Table.AddColumn(AddYearQuarter,  "start_of_month",   each Date.StartOfMonth([date]), type date),
+				
+				    // ====== 7) Flags absolutas ======
+				    AddIsWeekend    = Table.AddColumn(AddStartOfMonth, "is_weekend",    each [day_of_week] = 1 or [day_of_week] = 7,        type logical),
+				    AddIsWorkday    = Table.AddColumn(AddIsWeekend,    "is_workday",    each not ([day_of_week] = 1 or [day_of_week] = 7),  type logical),
+				    AddIsWeekStart  = Table.AddColumn(AddIsWorkday,    "is_week_start", each [date] = [week_start_date],                    type logical),
+				
+				    // ====== 8) Flags relativas (vs Hoy) ======
+				    AddIsCurrentWeek    = Table.AddColumn(AddIsWeekStart,     "is_current_week",     each [week_start_date] = InicioSemanaActual,                          type logical),
+				    AddIsLastClosedWeek = Table.AddColumn(AddIsCurrentWeek,   "is_last_closed_week", each [week_start_date] = Date.AddDays(InicioSemanaActual, -7),        type logical),
+				    AddIsLastWeek       = Table.AddColumn(AddIsLastClosedWeek,"is_last_week",        each [week_start_date] = Date.AddDays(InicioSemanaActual, -7),        type logical),
+				    AddIsCurrentMonth   = Table.AddColumn(AddIsLastWeek,     "is_current_month",    each [year] = Date.Year(Hoy) and [month] = Date.Month(Hoy),           type logical),
+				    AddIsCurrentQuarter = Table.AddColumn(AddIsCurrentMonth, "is_current_quarter",  each [year] = Date.Year(Hoy) and [quarter] = Date.QuarterOfYear(Hoy), type logical),
+				    AddIsCurrentYear    = Table.AddColumn(AddIsCurrentQuarter,"is_current_year",    each [year] = Date.Year(Hoy),                                         type logical),
+				    AddIsPast           = Table.AddColumn(AddIsCurrentYear,   "is_past",            each [date] < Hoy,                                                    type logical),
+				    AddIsFuture         = Table.AddColumn(AddIsPast,          "is_future",          each [date] > Hoy,                                                    type logical),
+				
+				    // ====== 9) Metricas relativas ======
+				    AddDaysFromToday    = Table.AddColumn(AddIsFuture,        "days_from_today",     each Duration.Days([date] - Hoy),                                                    Int64.Type),
+				    AddWeeksFromCurrent = Table.AddColumn(AddDaysFromToday,   "weeks_from_current",  each Number.IntegerDivide(Duration.Days([week_start_date] - InicioSemanaActual), 7), Int64.Type),
+				    AddRelativeWeek     = Table.AddColumn(AddWeeksFromCurrent,"relative_week",       each [weeks_from_current], Int64.Type),
+				
+				    // ====== 10) Horizontes S&OE ======
+				    AddIs12W       = Table.AddColumn(AddRelativeWeek, "is_in_12w_outlook", each [weeks_from_current] >= 1  and [weeks_from_current] <= 12, type logical),
+				    AddIs6WHistory = Table.AddColumn(AddIs12W,        "is_in_6w_history",  each [weeks_from_current] >= -6 and [weeks_from_current] <= -1, type logical),
+				    AddIs6WForecast= Table.AddColumn(AddIs6WHistory,  "is_in_6w_forecast", each [weeks_from_current] >= 0  and [weeks_from_current] <= 5,  type logical),
+				
+				    #"Filas ordenadas" = Table.Sort(AddIs6WForecast, {{"date", Order.Ascending}})
+				in
+				    #"Filas ordenadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

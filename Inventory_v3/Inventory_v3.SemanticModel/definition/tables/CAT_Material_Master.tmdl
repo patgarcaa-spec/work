@@ -1,0 +1,476 @@
+table CAT_Material_Master
+	lineageTag: e62f755d-0877-434e-bb72-8340770860d8
+
+	column Material___Key
+		dataType: string
+		lineageTag: 3c714d58-4d19-4be3-af74-74166cc07fcb
+		summarizeBy: none
+		sourceColumn: Material___Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material
+		dataType: string
+		lineageTag: bd6ffa7b-b7ec-4574-b881-dda113938aa1
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU
+		dataType: string
+		lineageTag: e99460c7-7d54-4031-8f39-e03ff3f5ca5a
+		summarizeBy: none
+		sourceColumn: BU
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_CATEGORY
+		dataType: string
+		lineageTag: 874aebdd-9dd9-4e58-a572-e14cb880d0af
+		summarizeBy: none
+		sourceColumn: VAR_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_PLATFORM
+		dataType: string
+		lineageTag: c4b11610-59b6-41a0-b6d8-f4e002ef236e
+		summarizeBy: none
+		sourceColumn: VAR_PLATFORM
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_BRAND
+		dataType: string
+		lineageTag: a18c07a4-a488-4fde-a83f-b8e088544a05
+		summarizeBy: none
+		sourceColumn: VAR_BRAND
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_SPS_Segment
+		dataType: string
+		lineageTag: 69d39507-cc26-495a-adc6-6ab87c0fed25
+		summarizeBy: none
+		sourceColumn: VAR_SPS_Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Procurement_Source_Vendor
+		dataType: string
+		lineageTag: 873b91a1-d71e-44a2-971b-85cbea3a02e1
+		summarizeBy: none
+		sourceColumn: Procurement_Source_Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manf_LineResource1
+		dataType: string
+		lineageTag: 013e6491-729c-4b93-8753-3685bab7d1d7
+		summarizeBy: none
+		sourceColumn: Manf_LineResource1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division___Key
+		dataType: string
+		lineageTag: 732cf2ca-b998-45dc-bb98-25f76b362da0
+		summarizeBy: none
+		sourceColumn: Division___Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: e03132be-d853-42fc-b358-7ff393d4bf6b
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1_Product_Vice_President___Key
+		dataType: string
+		lineageTag: 0d07f4b7-913f-4b95-b4e7-f17798cf478f
+		summarizeBy: none
+		sourceColumn: L1_Product_Vice_President___Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1_Product_Vice_President
+		dataType: string
+		lineageTag: e4859cbd-0ab5-4b1a-a609-4ebd8e5fa4c2
+		summarizeBy: none
+		sourceColumn: L1_Product_Vice_President
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionSource_Type_Class
+		dataType: string
+		lineageTag: 805cedb2-75cd-44e5-a993-8aea7cb112d2
+		summarizeBy: none
+		sourceColumn: DivisionSource_Type_Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demand_ABC_Class
+		dataType: string
+		lineageTag: 70d02244-ac03-4e10-9c7b-14cdd0fe99c4
+		summarizeBy: none
+		sourceColumn: Demand_ABC_Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_type
+		dataType: string
+		lineageTag: 72312b1e-a161-4eb0-b5dd-9e3c69788fdd
+		summarizeBy: none
+		sourceColumn: Material_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status_Active_Disc_Obs
+		dataType: string
+		lineageTag: cba6c2d2-9f01-4d55-b8a8-9b5797dafa06
+		summarizeBy: none
+		sourceColumn: Status_Active_Disc_Obs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Hierarchy_LVL1
+		dataType: string
+		lineageTag: cebdfe62-5542-43ad-8645-4c7d90714cef
+		summarizeBy: none
+		sourceColumn: Product_Hierarchy_LVL1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Hierarchy_LVL2
+		dataType: string
+		lineageTag: f802a1cf-73ed-49e3-b5a6-c51895171d08
+		summarizeBy: none
+		sourceColumn: Product_Hierarchy_LVL2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Hierarchy_LVL3
+		dataType: string
+		lineageTag: 1d0e7280-2250-43d8-9c5a-7bed3c9eeb3d
+		summarizeBy: none
+		sourceColumn: Product_Hierarchy_LVL3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CB_Marketing_Team
+		dataType: string
+		lineageTag: 917e66b6-e052-46f8-9cfd-56ba560a94db
+		summarizeBy: none
+		sourceColumn: CB_Marketing_Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column CB_Brand
+		dataType: string
+		lineageTag: 66c73e82-78b4-4421-8d10-1651e9a4a5d2
+		summarizeBy: none
+		sourceColumn: CB_Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column CB_Promoted_Group
+		dataType: string
+		lineageTag: 2389d67c-9f0c-4a37-9db4-6b021b3d55de
+		summarizeBy: none
+		sourceColumn: CB_Promoted_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column FS_Brand
+		dataType: string
+		lineageTag: 92598b76-932b-41d8-bb0b-48f5b38ae144
+		summarizeBy: none
+		sourceColumn: FS_Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column FS_Material_Platform
+		dataType: string
+		lineageTag: 954c2296-f207-4d5c-be89-0884b853aeec
+		summarizeBy: none
+		sourceColumn: FS_Material_Platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___CPS_Category_Key
+		dataType: string
+		lineageTag: 650c54e6-1b63-42c5-a0dc-2354302170ed
+		summarizeBy: none
+		sourceColumn: Material___CPS_Category_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Units_Per_Case_Key
+		dataType: string
+		lineageTag: b3740c03-538a-4aa1-9a40-c697346879d7
+		summarizeBy: none
+		sourceColumn: Material___Units_Per_Case_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Net_weight_Key
+		dataType: string
+		lineageTag: 6852201e-c7b5-43e5-a846-8110b594057f
+		summarizeBy: none
+		sourceColumn: Material___Net_weight_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Net_Wt_UoM
+		dataType: string
+		lineageTag: a000263c-c0e8-49b2-9574-f0a2e2de0989
+		summarizeBy: none
+		sourceColumn: Net_Wt_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pounds_Per_Case
+		dataType: double
+		lineageTag: 0b45b80a-4e1c-41a3-b5f9-f49ab592b41b
+		summarizeBy: sum
+		sourceColumn: Pounds_Per_Case
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VAR_Mgt_Hier01
+		dataType: string
+		lineageTag: 4a721100-beb4-422c-b314-13f2cab4a246
+		summarizeBy: none
+		sourceColumn: VAR_Mgt_Hier01
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_Mgt_Hier02
+		dataType: string
+		lineageTag: 82affae5-b52c-4e91-bc17-78386c1c21f1
+		summarizeBy: none
+		sourceColumn: VAR_Mgt_Hier02
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_Mgt_Hier03
+		dataType: string
+		lineageTag: a7038c5b-0a85-46a1-bf4b-0f0dde7a7993
+		summarizeBy: none
+		sourceColumn: VAR_Mgt_Hier03
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_Mgt_Hier04
+		dataType: string
+		lineageTag: d15cdb91-ec15-45ae-9669-293ebcd8c82f
+		summarizeBy: none
+		sourceColumn: VAR_Mgt_Hier04
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATERIAL_GROUP
+		dataType: string
+		lineageTag: 2c7286e9-cf89-4b55-a994-631229f5eec2
+		summarizeBy: none
+		sourceColumn: MATERIAL_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Shopping_Guide_Numbe_Key
+		dataType: string
+		lineageTag: 6f2bf0c5-de2e-46d9-aa5a-3003d100d6a4
+		summarizeBy: none
+		sourceColumn: Material___Shopping_Guide_Numbe_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production_Family_for_Manugistics_Material
+		dataType: string
+		lineageTag: f0bc8ed6-324d-4d85-b6cf-afff47a78742
+		summarizeBy: none
+		sourceColumn: Production_Family_for_Manugistics_Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Brand_Text
+		dataType: string
+		lineageTag: 799d3bfd-ed53-4b0b-beba-32aebe02c2ef
+		summarizeBy: none
+		sourceColumn: Material___Brand_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___L3_Brand_Text
+		dataType: string
+		lineageTag: a5be4c63-3f8c-4489-9844-67de6ab79aa5
+		summarizeBy: none
+		sourceColumn: Material___L3_Brand_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Brand_Family_Text
+		dataType: string
+		lineageTag: 3be991c2-c15a-4a2a-85ac-39bfa9ec1250
+		summarizeBy: none
+		sourceColumn: Material___Brand_Family_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cases_per_Pallet_RDP
+		dataType: int64
+		formatString: 0
+		lineageTag: 40fb2b43-df7a-45ba-ab07-1a54e8bb8e3d
+		summarizeBy: sum
+		sourceColumn: Cases_per_Pallet_RDP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cases_per_Pallet_PS2
+		dataType: int64
+		formatString: 0
+		lineageTag: a9697ef3-09cc-4241-93bd-2f5148f2b679
+		summarizeBy: sum
+		sourceColumn: Cases_per_Pallet_PS2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Integration_Group
+		dataType: string
+		lineageTag: 9708b97d-57d6-4df0-a431-bb24ba1c4ecb
+		summarizeBy: none
+		sourceColumn: Material_Integration_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Material_group_Key
+		dataType: string
+		lineageTag: 359af2bf-bb13-48a5-ad43-4573da23ea62
+		summarizeBy: none
+		sourceColumn: Material___Material_group_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___Material_group_Text
+		dataType: string
+		lineageTag: 35306fee-7826-40db-bb45-9044e9ecc8e5
+		summarizeBy: none
+		sourceColumn: Material___Material_group_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shelf_Life
+		dataType: string
+		lineageTag: 3bd2159a-2292-4ce4-b1a6-220f6f0656ca
+		summarizeBy: none
+		sourceColumn: Shelf_Life
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material___GSP_Category
+		dataType: string
+		lineageTag: 7ba2f088-b9c5-4335-a36b-7c9b17210db8
+		summarizeBy: none
+		sourceColumn: Material___GSP_Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: e24c2df2-88c2-448f-816c-e1962ee73617
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source_Group
+		dataType: string
+		lineageTag: 83d60b10-c567-4871-ad36-1956c8eb6825
+		summarizeBy: none
+		sourceColumn: Source_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_Transfer_Price_Per_Case
+		dataType: string
+		lineageTag: e17edb21-73da-47d3-90ab-8778f62ab01e
+		summarizeBy: none
+		sourceColumn: VAR_Transfer_Price_Per_Case
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAR_CATEGORY_NEW_IBP
+		dataType: string
+		lineageTag: 9c374666-f3a1-4910-91ff-f61285b91d53
+		summarizeBy: none
+		sourceColumn: VAR_CATEGORY_NEW_IBP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Storage_condition___Key
+		dataType: string
+		lineageTag: b1030397-3653-4dd7-ae2c-67e9a572ecff
+		summarizeBy: none
+		sourceColumn: Storage_condition___Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Storage_condition___Long_Text
+		dataType: string
+		lineageTag: a617418e-9466-4a00-9bde-56e743625305
+		summarizeBy: none
+		sourceColumn: Storage_condition___Long_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column FilePath
+		dataType: string
+		lineageTag: e2890502-7f0b-4488-b316-b39996f5bcfd
+		summarizeBy: none
+		sourceColumn: FilePath
+
+		annotation SummarizationSetBy = Automatic
+
+	column OLD_CATEGORY
+		dataType: string
+		lineageTag: 92aa2c95-2c7d-4598-bcb6-7736ba10dcc7
+		summarizeBy: none
+		sourceColumn: OLD_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cases_per_Pallet
+		dataType: double
+		lineageTag: 0816afd0-aa8f-4b0a-b1cc-1b1e071092e8
+		summarizeBy: sum
+		sourceColumn: Cases_per_Pallet
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CAT_Material_Master = m
+		mode: import
+		source = ```
+				let
+				    Origen = Sql.Database("a7niicbdnafeziyn7pkezid2ei-xvfrvotyhelefgem6tjbs5rb4q.datawarehouse.fabric.microsoft.com", "LH_Integrated_Business_Planning_Unstructured_Flows"),
+				    Silver_rd_merged_material_master = Origen{[Schema="Silver",Item="rd_merged_material_master"]}[Data],
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(Silver_rd_merged_material_master,{{"Cases_per_Pallet_RDP", Int64.Type}, {"Cases_per_Pallet_PS2", Int64.Type}}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Tipo cambiado1", "Cases_per_Pallet", each if [Cases_per_Pallet_RDP] <> null and [Cases_per_Pallet_RDP] > 0 
+				then [Cases_per_Pallet_RDP] 
+				else [Cases_per_Pallet_PS2]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Cases_per_Pallet", type number}, {"Pounds_Per_Case", type number}})
+				in
+				    #"Tipo cambiado"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

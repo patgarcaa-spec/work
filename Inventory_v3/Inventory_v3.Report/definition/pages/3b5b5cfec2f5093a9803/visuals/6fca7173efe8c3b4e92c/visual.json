@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "6fca7173efe8c3b4e92c",
+  "position": {
+    "x": 1367.1428571428571,
+    "y": 2.8571428571428572,
+    "z": 2000,
+    "height": 62.857142857142861,
+    "width": 232.85714285714286,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'CJ-Schwans-Logo-Resized-4e6a77d651912f60ea48099aa73061f8.avif'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "CJ-Schwans-Logo-Resized-4e6a770026391109238276256.avif"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Normal'"
+                    }
+                  }
+                }
+              }
+            },
+            "fit": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fill'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

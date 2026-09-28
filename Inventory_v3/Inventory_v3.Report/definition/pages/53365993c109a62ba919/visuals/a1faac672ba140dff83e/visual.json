@@ -1,0 +1,421 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a1faac672ba140dff83e",
+  "position": {
+    "x": 1220,
+    "y": 77.142857142857153,
+    "z": 7000,
+    "height": 100,
+    "width": 174.28571428571431,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Calendario"
+                    }
+                  },
+                  "Property": "year"
+                }
+              },
+              "queryRef": "CAT_Calendario.year",
+              "nativeQueryRef": "year",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Calendario"
+                    }
+                  },
+                  "Property": "month_name"
+                }
+              },
+              "queryRef": "CAT_Calendario.month_name",
+              "nativeQueryRef": "month_name",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CAT_Calendario.year"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAT_Calendario"
+                    }
+                  },
+                  "Property": "year"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CAT_Calendario.month_name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2026L"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Period'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "c",
+                    "Entity": "CAT_Calendario",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "c"
+                                }
+                              },
+                              "Property": "year"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "2026L"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "CAT_Calendario"
+                                }
+                              },
+                              "Property": "year"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "2026L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "CAT_Calendario"
+                                    }
+                                  },
+                                  "Property": "year"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "2026"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Date'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "year",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
